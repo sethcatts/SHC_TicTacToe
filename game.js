@@ -1,5 +1,8 @@
 class Game {
   var board = [[],[]];
+  var win   = false;
+  var player_1 = new Player("One");
+  var player_2 = new Player("Two");
   /*
   * ARGS: number to be squared to create board of size n
   */
@@ -19,7 +22,10 @@ class Game {
   function getBoard() {
     return this.board;
   }
-
+  
+  function checkForWin() {
+    
+  }
 }
 const game_1 = new Game(3);
 console.error(game.getBoard());
