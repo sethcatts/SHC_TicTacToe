@@ -24,7 +24,7 @@ class Game {
   }
   
   function checkForWin() {
-    
+    return false;
   }
 }
 const game_1 = new Game(3);
