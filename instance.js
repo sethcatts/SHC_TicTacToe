@@ -3,6 +3,13 @@ while(!exit(input)) {
     game_1.prtBoard();
 }
 
+
+//Fix/Test
 function exit(char) {
-    return char == 'q';
+    try {
+        return char.length == 1;
+    } catch(err) {
+        console.error("Invalid string");
+        return false;
+    }
 }
