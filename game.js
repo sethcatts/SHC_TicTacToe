@@ -33,8 +33,8 @@ class Game {
   }
 
   prtBoard() {
-    for(let x in this.board) {
-      console.error(this.board[x]);
+    for(let i = 0; i < this.board[0].length; i++) {
+      console.log(this.board[i]);
     }
   }
   
@@ -42,6 +42,3 @@ class Game {
     return false;
   }
 }
-
-const game_1 = new Game(3);
-console.error(game_1.prtBoard());
