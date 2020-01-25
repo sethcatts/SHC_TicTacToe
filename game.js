@@ -1,4 +1,4 @@
-class Game {
+module.exports = class Game {
   /*
   * ARGS: number to be squared to create board of size n
   */
@@ -16,7 +16,7 @@ class Game {
     for(let i = 0; i < size; i++) {
       let tempArray = [];
       for(let j = 0; j < size; j++) {
-          tempArray.push("X");
+          tempArray.push('[' + i + '][' + j + "]");
       }
       board.push(tempArray);
       tempArray = [];
@@ -28,16 +28,27 @@ class Game {
     return this.board;
   }
   
-  setBoard(x) {
-    this.board = x;
+  setBoard(boardArray) {
+    this.board = boardArray;
   }
+
 
   prtBoard() {
     for(let i = 0; i < this.board[0].length; i++) {
       console.log(this.board[i]);
     }
   }
+
+  placePiece(player, x, y) {
+    //this.board[x][y] = player.piece;
+  }
   
+  /*
+  ** Function    : Check the board for a winning 
+                   position and return a win object
+  ** @Args       : None
+  ** @Returns    : Object
+  */
   checkForWin() {
     return false;
   }
