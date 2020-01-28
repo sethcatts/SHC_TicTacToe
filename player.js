@@ -2,8 +2,10 @@ module.exports = class Player {
     constructor(name, piece) {
         var name;
         var piece;
+        var pieceImagePath;
         this.name = name;
         this.piece = piece;
+        this.pieceImagePath = "";
     }
 
     getName() {
@@ -12,5 +14,9 @@ module.exports = class Player {
 
     getPiece() {
         return this.piece;
+    }
+    
+    getPieceImage() {
+        return this.pieceImagePath;
     }
 }
