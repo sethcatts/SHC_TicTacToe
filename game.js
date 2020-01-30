@@ -72,6 +72,9 @@ module.exports = class Game {
   **               position and return a win object
   ** @Args       : None
   ** @Returns    : Object
+  **
+  ** NOTE: HAS NOT BEEN TESTED
+  **
   */
   checkForWin() {
     let state = false;
