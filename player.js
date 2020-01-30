@@ -5,7 +5,7 @@ module.exports = class Player {
         var pieceImagePath;
         this.name = name;
         this.piece = piece;
-        this.pieceImagePath = "";
+        this.pieceImagePath = "images/";
     }
 
     getName() {
