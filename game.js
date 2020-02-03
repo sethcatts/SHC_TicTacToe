@@ -73,11 +73,17 @@ module.exports = class Game {
   ** Function: Check if a piece can be placed at the coordinate
   **
   ** @Args: [x,y] coordinates 
-  ** @Returns: Boolean 
+  ** @Returns: Boolean
+  **
+  ** NOTE: HAS NOT BEEN TESTED
+  **  
   */
   legalMove(x, y) {
-    //TODO: Validate coordinates based on size of gameboard.
-    return this.board[x][y] === this.blank;
+    if(x <= this.board.length && y <= this.board[0].length) {
+		  return this.board[x][y] === this.blank;
+	  } else {
+		  return false;
+	  }
   }
 
   /*
