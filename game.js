@@ -5,6 +5,8 @@ module.exports = class Game {
   constructor(boardSize) {
     var board;
     var gameOver;
+    var blank;
+    this.blank = "[ ]";
     this.board = this.createBoard(boardSize);
     this.gameOver = false;
     //this.player_1   = new Player("One");
@@ -21,7 +23,7 @@ module.exports = class Game {
     for (let i = 0; i < size; i++) {
       let tempArray = [];
       for (let j = 0; j < size; j++) {
-        tempArray.push("[ ]");
+        tempArray.push(this.blank);
       }
       board.push(tempArray);
       tempArray = [];
@@ -65,6 +67,17 @@ module.exports = class Game {
    */
   placePiece(p, x, y) {
     this.board[x][y] = p;
+  }
+
+  /*
+  ** Function: Check if a piece can be placed at the coordinate
+  **
+  ** @Args: [x,y] coordinates 
+  ** @Returns: Boolean 
+  */
+  legalMove(x, y) {
+    //TODO: Validate coordinates based on size of gameboard.
+    return this.board[x][y] === this.blank;
   }
 
   /*
