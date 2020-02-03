@@ -15,7 +15,7 @@ module.exports = class Player {
     getPiece() {
         return this.piece;
     }
-    
+
     getPieceImage() {
         return this.pieceImagePath;
     }
