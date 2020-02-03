@@ -1,6 +1,6 @@
 module.exports = class Game {
   /*
-   * ARGS: number to be squared to create board of size n squared
+   * ARGS: number to be squared to create board of size n • n
    */
   constructor(boardSize) {
     var board;
