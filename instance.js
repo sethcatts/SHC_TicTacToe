@@ -15,3 +15,14 @@ readline.question('Command: ', (com) => {
     readline.close();
     game_1.prtBoard();
 });
+
+
+
+/*
+    Untied code
+*/
+$(function() {
+	$(".r_1").click(function() {
+  	$(this).css('background-color', 'black');
+  });
+});
