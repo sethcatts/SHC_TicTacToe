@@ -85,7 +85,21 @@ module.exports = class Game {
 		  return false;
 	  }
   }
-
+	
+  boardFull() {
+	  var retVal = false;
+	  //for(let x = 0; x < this.board.size; x++) {
+		  
+	  //}
+  }
+	
+  checkForTie() {
+	if(this.boardFull() && !checkForWin()) {
+		return true;
+	} else {
+		return false;
+	}
+  }
   /*
    ** Function    : Check the board for a winning 
    **               position and return a win object
