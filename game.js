@@ -6,11 +6,11 @@ module.exports = class Game {
     var board;
     var gameOver;
     var blank;
-    this.blank = "[ ]";
-    this.board = this.createBoard(boardSize);
-    this.gameOver = false;
-    //this.player_1   = new Player("One");
-    //this.player_2   = new Player("Two");
+    this.blank 		= "[ ]";
+    this.board 		= this.createBoard(boardSize);
+    this.gameOver 	= false;
+    this.player_1   	= new Player("One", "X");
+    this.player_2   	= new Player("Two", "O");
   }
 
   /*
