@@ -3,10 +3,10 @@
 An implementation of Tic-Tac-Toe with a focus on abstraction and encapsulation
 
 ***
-#Features
-##The Game
+# Features
+## The Game
 The ability to play the game of TicTacToe
-##Themes
+## Themes
 Change the theme of the board and pieces
-##AI apponent  
+## AI apponent  
 Play against an AI opponent
