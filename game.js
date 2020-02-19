@@ -6,6 +6,7 @@ module.exports = class Game {
     var board;
     var gameOver;
     var blank;
+    var themes 		= [0,1,2];
     this.blank 		= "[ ]";
     this.board 		= this.createBoard(boardSize);
     this.gameOver 	= false;
