@@ -81,10 +81,10 @@ module.exports = class Game {
   */
   legalMove(x, y) {
     if(x <= this.board.length && y <= this.board[0].length) {
-		  return this.board[x][y] === this.blank;
-	  } else {
-		  return false;
-	  }
+	return this.board[x][y] === this.blank;
+    } else {
+	return false;
+    }
   }
 	
   boardFull() {
