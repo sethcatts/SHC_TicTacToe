@@ -6,11 +6,12 @@ module.exports = class Game {
     var board;
     var gameOver;
     var blank;
-    this.blank = "[ ]";
-    this.board = this.createBoard(boardSize);
-    this.gameOver = false;
-    //this.player_1   = new Player("One");
-    //this.player_2   = new Player("Two");
+    var themes 		= [0,1,2];
+    this.blank 		= "[ ]";
+    this.board 		= this.createBoard(boardSize);
+    this.gameOver 	= false;
+    this.player_1   	= new Player("One", "X");
+    this.player_2   	= new Player("Two", "O");
   }
 
   /*
@@ -89,12 +90,26 @@ module.exports = class Game {
   */
   legalMove(x, y) {
     if(x <= this.board.length && y <= this.board[0].length) {
-		  return this.board[x][y] === this.blank;
-	  } else {
-		  return false;
-	  }
+	return this.board[x][y] === this.blank;
+    } else {
+	return false;
+    }
   }
-
+	
+  boardFull() {
+	  var retVal = false;
+	  //for(let x = 0; x < this.board.size; x++) {
+		  
+	  //}
+  }
+	
+  checkForTie() {
+	if(this.boardFull() && !checkForWin()) {
+		return true;
+	} else {
+		return false;
+	}
+  }
   /*
    ** Function    : Check the board for a winning 
    **               position and return a win object
