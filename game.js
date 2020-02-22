@@ -67,6 +67,15 @@ module.exports = class Game {
    */
   placePiece(p, x, y) {
     this.board[x][y] = p;
+    /*
+        Untied code
+    
+    $(function() {
+      $(".r_1").click(function() {
+        $(this).css('background-color', 'black');
+      });
+    });
+    */
   }
 
   /*

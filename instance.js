@@ -18,11 +18,4 @@ readline.question('Command: ', (com) => {
 
 
 
-/*
-    Untied code
-*/
-$(function() {
-	$(".r_1").click(function() {
-  	$(this).css('background-color', 'black');
-  });
-});
+
