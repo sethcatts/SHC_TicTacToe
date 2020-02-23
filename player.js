@@ -1,4 +1,4 @@
-module.exports = class Player {
+class Player {
     constructor(name, piece) {
         var name;
         var piece;

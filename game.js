@@ -1,4 +1,4 @@
-module.exports = class Game {
+class Game {
   /*
    * ARGS: number to be squared to create board of size n • n
    */
