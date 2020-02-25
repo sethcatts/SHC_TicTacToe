@@ -19,4 +19,8 @@ class Player {
     getPieceImage() {
         return this.pieceImagePath;
     }
+    
+    setName(name) {
+        this.name = name;
+    }
 }
