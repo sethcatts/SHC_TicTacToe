@@ -121,19 +121,44 @@ class Game {
    **
    ** NOTE: HAS NOT BEEN TESTED
    **
+   ** NOTE: I'm going to write this the stupid way so that testing can continue
+   **       but it should be refactored later using for-loops
    */
   checkForWin() {
     let state = false;
-    for (let i in this.board) {
-      if (this.board[i][0] === this.board[i][1] === this.board[0][2]) {
-        state = true;
-      } else if (this.board[0][i] === this.board[1][i] === this.board[2][i]) {
-        state = true;
-      } else if (this.board[0][0] === this.board[1][1] === this.board[2][2]) {
-        state = true;
-      } else if (this.board[0][2] === this.board[1][1] === this.board[2][0]) {
-        state = true;
-      }
+    /*  
+    **  H: Horizontal/Row, 
+    **  T: Top/First, 
+    **  M: Middle/Center, 
+    **  B: Bottom/Last, 
+    **  V: Vertical/Column
+    **  D: Diagonal(START-FINISH)
+    */
+    //Case coverage total: 8/8
+    //H-T
+    if(this.board[0][0] === this.board[0][1] === this.board[0][2]) {
+      state = true;
+      //H-M
+    } else if(this.board[1][0] === this.board[1][1] === this.board[1][2]) {
+      state = true;
+      //H-B
+    } else if(this.board[2][0] === this.board[2][1] === this.board[2][2]) {
+      state = true;
+      //V-T
+    } else if(this.board[0][0] === this.board[1][0] === this.board[2][0]) {
+      state = true;
+      //V-M
+    } else if(this.board[0][1] === this.board[1][1] === this.board[1][2]) {
+      state = true;
+      //V-B
+    } else if(this.board[2][0] === this.board[1][2] === this.board[2][2]) {
+      state = true;
+      //D(T-B)
+    } else if(this.board[0][0] === this.board[1][1] === this.board[2][2]) {
+      state = true;
+      //D(B-T)
+    } else if(this.board[2][0] === this.board[1][1] === this.board[0][2]) {
+      state = true;
     }
     return state;
   }
