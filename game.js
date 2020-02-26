@@ -1,17 +1,16 @@
 class Game {
   /*
-   * ARGS: number to be squared to create board of size n • n
+   * ARGS: number to be squared to create board of size [N x N]
    */
   constructor(boardSize) {
     var board;
     var gameOver;
     var blank;
-    var themes 		= [0,1,2];
     this.blank 		= "[ ]";
     this.board 		= this.createBoard(boardSize);
-    this.gameOver 	= false;
-    this.player_1   	= new Player("One", "X");
-    this.player_2   	= new Player("Two", "O");
+    this.gameOver = false;
+    this.player_1 = new Player("One", "X");
+    this.player_2 = new Player("Two", "O");
   }
 
   /*
@@ -67,54 +66,58 @@ class Game {
    ** @Returns    : None
    */
   placePiece(p, x, y) {
-    this.board[x][y] = p;
-    /*
-        Untied code
-    
-    $(function() {
-      $(".r_1").click(function() {
-        $(this).css('background-color', 'black');
-      });
-    });
-    */
+    if(this.legalMove(x, y)) {
+      this.board[x][y] = p;
+      return true;
+    } else {
+      console.error("GAME CLASS ERROR: Attempted illegal move");
+      return false;
+    }
   }
 
   /*
-  ** Function: Check if a piece can be placed at the coordinate
-  **
-  ** @Args: [x,y] coordinates 
-  ** @Returns: Boolean
-  **
-  ** NOTE: HAS NOT BEEN TESTED
-  **  
+  ** Function     : Check if a piece can be placed at the coordinate
+  ** @Args        : [x,y] board coordinates 
+  ** @Returns     : Boolean  
   */
   legalMove(x, y) {
     if(x <= this.board.length && y <= this.board[0].length) {
-	return this.board[x][y] === this.blank;
+	    return this.board[x][y] === this.blank;
     } else {
-	return false;
+	    return false;
     }
   }
-	
+  
+  /*
+  ** Function     : Check if all game board cells are used
+  ** @Args        : None 
+  ** @Returns     : Boolean  
+  */
   boardFull() {
 	  var retVal = false;
 	  //for(let x = 0; x < this.board.size; x++) {
 		  
 	  //}
   }
-	
+
+	/*
+  ** Function     : Check if the board is full and thefore the game is a tie
+  ** @Args        : None 
+  ** @Returns     : Boolean value
+  */
   checkForTie() {
-	if(this.boardFull() && !checkForWin()) {
-		return true;
-	} else {
-		return false;
-	}
+	  if(this.boardFull() && !checkForWin()) {
+		  return true;
+	  } else {
+		  return false;
+	  }
   }
+
   /*
-   ** Function    : Check the board for a winning 
-   **               position and return a win object
-   ** @Args       : None
-   ** @Returns    : Object
+   ** Function     : Check the board for a winning 
+   **                position and return a win object
+   ** @Args        : None
+   ** @Returns     : Object
    **
    ** NOTE: HAS NOT BEEN TESTED
    **
