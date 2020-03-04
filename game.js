@@ -56,7 +56,7 @@ class Game {
    */
   prtBoard() {
     for (let i = 0; i < this.board[0].length; i++) {
-      console.log(this.board[i]);
+      console.log(this.board[i][0] + " " + this.board[i][1] + " " + this.board[i][2]);
     }
   }
 
@@ -101,7 +101,7 @@ class Game {
   }
 
 	/*
-  ** Function     : Check if the board is full and thefore the game is a tie
+  ** Function     : Check if the board is full and nobody has won
   ** @Args        : None 
   ** @Returns     : Boolean value
   */
@@ -134,30 +134,38 @@ class Game {
     **  V: Vertical/Column
     **  D: Diagonal(START-FINISH)
     */
-    //Case coverage total: 8/8
+    //Case coverage total: 1/8
     //H-T
-    if(this.board[0][0] === this.board[0][1] === this.board[0][2]) {
+    if(this.board[0][0] === this.board[0][1] 
+       && this.board[0][0] === this.board[0][2]) {
       state = true;
       //H-M
-    } else if(this.board[1][0] === this.board[1][1] === this.board[1][2]) {
+    } else if(this.board[1][0] === this.board[1][1] 
+              && this.board[1][0] === this.board[1][2]) {
       state = true;
       //H-B
-    } else if(this.board[2][0] === this.board[2][1] === this.board[2][2]) {
+    } else if(this.board[2][0] === this.board[2][1] 
+              && this.board[2][0] === this.board[2][2]) {
       state = true;
       //V-T
-    } else if(this.board[0][0] === this.board[1][0] === this.board[2][0]) {
+    } else if(this.board[0][0] === this.board[1][0] 
+              && this.board[0][0] === this.board[2][0]) {
       state = true;
       //V-M
-    } else if(this.board[0][1] === this.board[1][1] === this.board[1][2]) {
+    } else if(this.board[0][1] === this.board[1][1] 
+              && this.board[0][1] === this.board[1][2]) {
       state = true;
       //V-B
-    } else if(this.board[2][0] === this.board[1][2] === this.board[2][2]) {
+    } else if(this.board[2][0] === this.board[1][2] 
+              && this.board[2][0] === this.board[2][2]) {
       state = true;
       //D(T-B)
-    } else if(this.board[0][0] === this.board[1][1] === this.board[2][2]) {
+    } else if(this.board[0][0] === this.board[1][1] 
+              && this.board[0][0] === this.board[2][2]) {
       state = true;
       //D(B-T)
-    } else if(this.board[2][0] === this.board[1][1] === this.board[0][2]) {
+    } else if(this.board[2][0] === this.board[1][1] 
+              && this.board[2][0] === this.board[0][2]) {
       state = true;
     }
     return state;
