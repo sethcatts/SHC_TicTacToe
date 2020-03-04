@@ -26,7 +26,7 @@
     g.placePiece(g.player_1.getPiece(), 0, 1);
     g.placePiece(g.player_1.getPiece(), 0, 2);
     g.prtBoard();
-    console.log("Game state: " + g.checkForWin() + "| TRUE");
+    console.log("Game won state: " + g.checkForWin() + " | TRUE");
 
   }
 
