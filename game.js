@@ -91,13 +91,21 @@ class Game {
   /*
   ** Function     : Check if all game board cells are used
   ** @Args        : None 
-  ** @Returns     : Boolean  
+  ** @Returns     : Boolean 
+  **
+  ** NOT TESTED
+  **
   */
   boardFull() {
-	  var retVal = false;
-	  //for(let x = 0; x < this.board.size; x++) {
-		  
-	  //}
+	  var full = true;
+	  for (let i = 0; i < size; i++) {
+      for (let j = 0; j < size; j++) {
+        if(this.board[i][j] === this.blank) {
+          full = false;
+        }
+      }
+    }
+    return full;
   }
 
 	/*
