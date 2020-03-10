@@ -1,5 +1,9 @@
-const game_1 = new Game(3);
+//Create Game Object
+const game_instance = new Game(3);
 
-console.log("TTT > INSTANCE CREATED");
-testGame(game_1);
 
+
+function selectCell(idn) {
+    obj = document.getElementById(idn);
+    obj.style.background = "red";
+}
