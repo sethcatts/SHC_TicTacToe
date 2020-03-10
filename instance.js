@@ -1,9 +1,6 @@
 //Create Game Object
 const game_instance = new Game(3);
 
-
-
 function selectCell(idn) {
-    obj = document.getElementById(idn);
-    obj.style.background = "red";
+    game_instance.placePiece(idn[0], idn[1]);
 }

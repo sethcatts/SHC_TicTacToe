@@ -6,11 +6,13 @@ class Game {
     var board;
     var gameOver;
     var blank;
-    this.blank 		= "[ ]";
-    this.board 		= this.createBoard(boardSize);
-    this.gameOver = false;
-    this.player_1 = new Player("One", "X");
-    this.player_2 = new Player("Two", "O");
+    var currentPlayer;
+    this.blank 		      = "[ ]";
+    this.board 		      = this.createBoard(boardSize);
+    this.gameOver       = false;
+    this.player_1       = new Player("One", "X", "White");
+    this.player_2       = new Player("Two", "O", "Black");
+    this.currentPlayer  = this.player_1;
   }
 
   /*
@@ -65,14 +67,29 @@ class Game {
    ** @Args       : Piece, x-coord, y-coord
    ** @Returns    : Boolean
    */
-  placePiece(p, x, y) {
+  placePiece(x, y, p = this.currentPlayer) {
     if(this.legalMove(x, y)) {
-      this.board[x][y] = p;
+      this.board[x][y] = "x";
+      this.switchMovingPlayer();
+
+      //DEBUG
+      this.prtBoard();
+      
       return true;
     } else {
       console.error("GAME CLASS ERROR: Attempted illegal move");
       return false;
     }
+  }
+
+  /*
+   ** Function    : Rotate the current moving player according to the game
+   ** @Args       : None
+   ** @Returns    : Current player according to the game class
+   */
+  switchMovingPlayer() {
+    this.currentPlayer = this.currentPlayer = this.player_1 ? this.player_2 : this.player_1;
+    this.currentPlayer;
   }
 
   /*

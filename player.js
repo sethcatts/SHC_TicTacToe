@@ -1,10 +1,12 @@
 class Player {
-    constructor(name, piece) {
+    constructor(name, piece, color) {
         var name;
         var piece;
         var pieceImagePath;
-        this.name = name;
-        this.piece = piece;
+        var playerColor
+        this.playerColor    = color;
+        this.name           = name;
+        this.piece          = piece;
         this.pieceImagePath = "images/";
     }
 
@@ -18,6 +20,10 @@ class Player {
 
     getPieceImage() {
         return this.pieceImagePath;
+    }
+
+    getColor() {
+        return this.color;
     }
     
     setName(name) {
