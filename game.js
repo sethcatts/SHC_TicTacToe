@@ -63,7 +63,7 @@ class Game {
   /*
    ** Function    : Place piece on game board
    ** @Args       : Piece, x-coord, y-coord
-   ** @Returns    : None
+   ** @Returns    : Boolean
    */
   placePiece(p, x, y) {
     if(this.legalMove(x, y)) {
