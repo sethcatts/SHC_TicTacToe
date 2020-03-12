@@ -23,7 +23,7 @@ class Player {
     }
 
     getColor() {
-        return this.color;
+        return this.playerColor;
     }
     
     setName(name) {

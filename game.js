@@ -10,8 +10,8 @@ class Game {
     this.blank 		      = "[ ]";
     this.board 		      = this.createBoard(boardSize);
     this.gameOver       = false;
-    this.player_1       = new Player("One", "X", "White");
-    this.player_2       = new Player("Two", "O", "Black");
+    this.player_1       = new Player("Player One", "X", "white");
+    this.player_2       = new Player("Player Two", "O", "orange");
     this.currentPlayer  = this.player_1;
   }
 
