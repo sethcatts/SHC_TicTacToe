@@ -3,6 +3,12 @@ body {
   color: white;
 }
 
+img {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+}
+
 .game_board {
   padding: 0px;
   margin: 0px;
@@ -13,12 +19,12 @@ body {
   padding: 0px;
   width: 200px;
   height: 200px;
-  background-color: lightblue;
+  background-color: white;
   display: inline-block;
 }
 
 .cell:hover {
-  background-color: lightgray;
+  background-color: rgb(132, 255, 228);
 }
 
 #head_title {

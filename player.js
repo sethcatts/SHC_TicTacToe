@@ -19,7 +19,8 @@ class Player {
     }
 
     getPieceImage() {
-        return this.pieceImagePath;
+        let p = Math.floor(Math.random() * 3) + 1;
+        return "" + this.pieceImagePath + "" + this.piece + '_' + p + '.png';
     }
 
     getColor() {

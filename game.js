@@ -10,8 +10,8 @@ class Game {
     this.blank 		      = "[ ]";
     this.board 		      = this.createBoard(boardSize);
     this.gameOver       = false;
-    this.player_1       = new Player("Player One", "X", "white");
-    this.player_2       = new Player("Player Two", "O", "orange");
+    this.player_1       = new Player("Player One", "x", "white");
+    this.player_2       = new Player("Player Two", "o", "orange");
     this.currentPlayer  = this.player_1;
   }
 
@@ -68,7 +68,7 @@ class Game {
    ** @Returns    : Boolean
    */
   placePiece(x, y, p = this.currentPlayer) {
-    if(this.legalMove(x, y)) {
+    if(this.legalMove(x, y) && !this.gameOver) {
       this.board[x][y] = p.getPiece();
       this.switchMovingPlayer();
 
@@ -205,6 +205,7 @@ class Game {
               && this.board[2][0] != this.blank) {
       state = true;
     }
+    this.gameOver = state;
     return state;
   }
 }
