@@ -2,17 +2,19 @@ class Game {
   /*
    * ARGS: number to be squared to create board of size [N x N]
    */
-  constructor(boardSize) {
+  constructor() {
     var board;
     var gameOver;
     var blank;
     var currentPlayer;
+    var waitingPlayer;
     this.blank 		      = "[ ]";
-    this.board 		      = this.createBoard(boardSize);
+    this.board 		      = this.createBoard();
     this.gameOver       = false;
-    this.player_1       = new Player("Player One", "x", "white");
-    this.player_2       = new Player("Player Two", "o", "orange");
+    this.player_1       = new Player("Player One (X)", "x", "white");
+    this.player_2       = new Player("Player Two (O)", "o", "orange");
     this.currentPlayer  = this.player_1;
+    this.waitingPlayer  = this.player_2;
   }
 
   /*
@@ -20,11 +22,11 @@ class Game {
    ** @Args       : Integer
    ** @Returns    : Array
    */
-  createBoard(size) {
+  createBoard() {
     let board = [];
-    for (let i = 0; i < size; i++) {
+    for (let i = 0; i < 3; i++) {
       let tempArray = [];
-      for (let j = 0; j < size; j++) {
+      for (let j = 0; j < 3; j++) {
         tempArray.push(this.blank);
       }
       board.push(tempArray);
@@ -71,10 +73,6 @@ class Game {
     if(this.legalMove(x, y) && !this.gameOver) {
       this.board[x][y] = p.getPiece();
       this.switchMovingPlayer();
-
-      //DEBUG
-      this.prtBoard();
-      
       return true;
     } else {
       console.error("GAME CLASS ERROR: Attempted illegal move");
@@ -90,8 +88,10 @@ class Game {
   switchMovingPlayer() {
     if(this.currentPlayer == this.player_1) {
       this.currentPlayer = this.player_2;
+      this.waitingPlayer = this.player_1;
     } else {
       this.currentPlayer = this.player_1;
+      this.waitingPlayer = this.player_2;
     }
     return this.currentPlayer;
   }
