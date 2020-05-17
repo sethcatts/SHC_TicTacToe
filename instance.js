@@ -1,24 +1,35 @@
 //Create Game Object
 var game_instance = new Game();
 
-function selectCell(idn) {
+function selectCell_x(idn) {
     var cell = document.getElementById(idn[0] + "" + idn[1]);
     var elem = document.createElement('img');
     elem.className = "selected_cell";
-    if(game_instance.currentPlayer == game_instance.player_1 && !game_instance.gameOver) {
-        //cell.style.backgroundColor = game_instance.player_1.getColor();
+    if(game_instance.currentPlayer == game_instance.player_1 && !game_instance.gameOver && game_instance.legalMove(idn[0], idn[1])) {
+        game_instance.placePiece(idn[0], idn[1])
         elem.src = game_instance.player_1.getPieceImage();
-        cell.appendChild(elem);
-        game_instance.placePiece(idn[0], idn[1]);
+        cell.appendChild(elem);     
     } else if (!game_instance.gameOver){
-        //cell.style.backgroundColor = game_instance.player_2.getColor();
         elem.src = game_instance.player_2.getPieceImage();
         cell.appendChild(elem);
         game_instance.placePiece(idn[0], idn[1]);
     } 
-    
     if(game_instance.checkForWin()) {
         alert("Game Over! \n" + game_instance.waitingPlayer.getName() + " Wins!");
+    }
+}
+
+function selectCell(idn) {
+    var cell = document.getElementById(idn[0] + "" + idn[1]);
+    var elem = document.createElement('img');
+    elem.className = "selected_cell";
+    if(!game_instance.gameOver && game_instance.legalMove(idn[0], idn[1])) {
+        game_instance.placePiece(idn[0],idn[1]);
+        elem.src = game_instance.currentPlayer.getPieceImage();
+        cell.appendChild(elem);
+    } 
+    if(game_instance.checkForWin()) {
+        alert("Game Over! \n" + game_instance.currentPlayer.getName() + " Wins!");
     }
 }
 
