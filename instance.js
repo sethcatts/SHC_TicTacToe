@@ -1,6 +1,7 @@
 //Create Game Object
 var game_instance = new Game();
 
+/*
 function selectCell_x(idn) {
     var cell = document.getElementById(idn[0] + "" + idn[1]);
     var elem = document.createElement('img');
@@ -17,7 +18,11 @@ function selectCell_x(idn) {
     if(game_instance.checkForWin()) {
         alert("Game Over! \n" + game_instance.waitingPlayer.getName() + " Wins!");
     }
+    if(game_instance.checkForTie()) {
+        alert("Game Over! \n Tie!");
+    }
 }
+*/
 
 function selectCell(idn) {
     var cell = document.getElementById(idn[0] + "" + idn[1]);
@@ -30,6 +35,9 @@ function selectCell(idn) {
     } 
     if(game_instance.checkForWin()) {
         alert("Game Over! \n" + game_instance.currentPlayer.getName() + " Wins!");
+    }
+    if(game_instance.checkForTie()) {
+        alert("Game Over! \n" + "The result is a tie!");
     }
 }
 

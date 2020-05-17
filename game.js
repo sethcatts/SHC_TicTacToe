@@ -115,14 +115,11 @@ class Game {
   ** Function     : Check if all game board cells are used
   ** @Args        : None 
   ** @Returns     : Boolean 
-  **
-  ** NOT TESTED
-  **
   */
   boardFull() {
 	  var full = true;
-	  for (let i = 0; i < size; i++) {
-      for (let j = 0; j < size; j++) {
+	  for (let i = 0; i < 3; i++) {
+      for (let j = 0; j < 3; j++) {      
         if(this.board[i][j] === this.blank) {
           full = false;
         }
@@ -137,7 +134,7 @@ class Game {
   ** @Returns     : Boolean value
   */
   checkForTie() {
-	  if(this.boardFull() && !checkForWin()) {
+	  if(this.boardFull() && !this.gameOver) {
 		  return true;
 	  } else {
 		  return false;
@@ -150,12 +147,16 @@ class Game {
   ** @Args        : None
   ** @Returns     : Object
   **
-  ** NOTE: HAS NOT BEEN TESTED
-  **
-  ** NOTE: I'm going to write this the stupid way so that testing can continue
-  **       but it should be refactored later using for-loops
+  ** NOTE: I'm going to write this the stupid way so that testing can
+  **       continue but it should be refactored later using for-loops
   */
   checkForWin() {
+    /*
+    ** Helper     : True if all 3 arguments match
+    **
+    ** @Args      : 3 [Strings](cell values)
+    ** @Returns   : Boolean
+    */
     function c(f,s,t) {
       return (f == s && f == t);
     }
@@ -180,61 +181,5 @@ class Game {
     }
     this.gameOver = state;
     return state;
-  }
-
-  
-
-  bas() {
-        /*  
-    **  H: Horizontal/Row, 
-    **  T: Top/First, 
-    **  M: Middle/Center, 
-    **  B: Bottom/Last, 
-    **  V: Vertical/Column
-    **  D: Diagonal(START-FINISH)
-    *
-    //Case coverage total: 1/8
-    //H-T
-    if(   this.board[0][0] === this.board[0][1] 
-       && this.board[0][0] === this.board[0][2] 
-       && this.board[0][0] != this.blank) {
-      state = true;
-      //H-M
-    } else if(   this.board[1][0] === this.board[1][1] 
-              && this.board[1][0] === this.board[1][2]
-              && this.board[1][0] != this.blank) {
-      state = true;
-      //H-B
-    } else if(   this.board[2][0] === this.board[2][1] 
-              && this.board[2][0] === this.board[2][2]
-              && this.board[2][0] != this.blank) {
-      state = true;
-      //V-T
-    } else if(   this.board[0][0] === this.board[1][0] 
-              && this.board[0][0] === this.board[2][0]
-              && this.board[0][0] != this.blank) {
-      state = true;
-      //V-M
-    } else if(   this.board[0][1] === this.board[1][1] 
-              && this.board[0][1] === this.board[1][2]
-              && this.board[0][1] != this.blank) {
-      state = true;
-      //V-B
-    } else if(   this.board[2][0] === this.board[1][2] 
-              && this.board[2][0] === this.board[2][2]
-              && this.board[2][0] != this.blank) {
-      state = true;
-      //D(T-B)
-    } else if(   this.board[0][0] === this.board[1][1] 
-              && this.board[0][0] === this.board[2][2]
-              && this.board[0][0] != this.blank) {
-      state = true;
-      //D(B-T)
-    } else if(   this.board[2][0] === this.board[1][1] 
-              && this.board[2][0] === this.board[0][2]
-              && this.board[2][0] != this.blank) {
-      state = true;
-    }
-    */
   }
 }
