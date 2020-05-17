@@ -16,7 +16,7 @@ class Game {
     this.currentPlayer  = this.player_1;
     this.waitingPlayer  = this.player_2;
     console.log("NEW GAME CREATED");
-    console.table(this);
+    //console.table(this);
   }
 
   /*

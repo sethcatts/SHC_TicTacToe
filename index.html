@@ -9,10 +9,11 @@
     <script src="testModule.js"></script>
     <script src="instance.js"></script>
   </header>
+  <body>
   <h1 id='head_title'>TIC TAC TOE</h1>
   <div id="menu_buttons">
     <button class="menu_button" onclick="newGame()">NEW GAME</button>
-    <button class="menu_button" onclick="alert('Optons')">OPTIONS</button>
+    <button class="menu_button" onclick="toggleMenu()">OPTIONS</button>
   </div>
   <div id='game'>
     <div class="game_board">
@@ -35,10 +36,21 @@
   </div>
   <div id="popup_bg">
     <div id="popup_menu">
-        
+        <div id="close_popup_div" title="Close Menu" onclick="toggleMenu()">
+          <p>X</p>
+        </div>
     </div>
   </div>
-
+  <script type="text/javascript">
+    var popup_menu = document.getElementById("popup_bg");
+    function toggleMenu() {
+      if(popup_menu.style.display != "block") {
+        popup_menu.style.display = "block";
+      } else {
+        popup_menu.style.display = "none";
+      }
+    }
+  </script>
 </main>
 
 </html>
