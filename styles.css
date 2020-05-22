@@ -1,6 +1,19 @@
+/* Variables */
+:root {
+  --background-color: rgb(0, 0, 0);
+  --font-color: white;
+  --cell-background-color: white;
+  --cell-highlight-color: rgba(78, 78, 78, .5);
+  --board-border-color: white;
+  --board-background-color: black;
+  --font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+/*************/
+
+
 body {
-  background-color: rgb(20, 20, 20);
-  color: white;
+  background-color: var(--background-color);
+  color: var(--font-color);
 }
 
 img {
@@ -19,29 +32,32 @@ img {
   padding: 0px;
   width: 200px;
   height: 200px;
-  background-color: white;
+  background-color: var(--cell-background-color);
   display: inline-block;
+  cursor: pointer;
+  background-size: cover;
 }
 
 .cell:hover {
-  background-color: rgb(233, 233, 233);
-  box-shadow: inset 0px 0px 0px 5px rgb(75, 175, 179);
+  box-shadow: inset 0px 0px 0px 5px var(--cell-highlight-color);
 }
 
 #head_title {
   padding-top: 20px;
   text-align: center;
-  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  font-family: var(--font-family);
 }
 
 #game {
   padding: 0px;
   width: 640;
   height: 640;
-  border: 5px white solid;
+  border: 5px var(--board-border-color) solid;
   margin-left: auto;
   margin-right: auto;
+  background-color: var(--board-background-color);
 }
+
 #menu_buttons {
   display: flex;
   justify-content: center;
@@ -57,17 +73,19 @@ img {
 	display:inline-block;
 	cursor:pointer;
 	color:#666666;
-	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-family: var(--font-family);
 	font-size:20px;
 	font-weight:bold;
 	padding:15px 20px;
 	text-decoration:none;
 	text-shadow:0px 1px 0px #ffffff;
 }
+
 .menu_botton:hover {
 	background:linear-gradient(to bottom, #e9e9e9 5%, #f9f9f9 100%);
 	background-color:#e9e9e9;
 }
+
 .menu_botton:active {
 	position:relative;
 	top:1px;
@@ -96,6 +114,7 @@ img {
 }
 
 #close_popup_div {
+  background-color: lightgray;
   position: absolute;
   width: 25px;
   height: 25px;
@@ -115,4 +134,37 @@ img {
   margin-top: 4px;
   font-family: sans-serif;
   font-weight: bold;
+}
+
+#save-button-div {
+  background-color: lightgray;
+  position: absolute;
+  border: 2px solid black;
+  right: 5px;
+  bottom: 5px;
+  cursor: pointer;
+}
+
+#save-button-div p {
+  color: black;
+  font-family: var(--font-family);
+  padding: 0px 10px 0px 10px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  cursor: pointer;
+}
+
+#save-button-div:hover {
+  background-color: lightblue;
+}
+
+#popup-settings-area {
+  font-family: var(--font-family);
+  color: black;
+  padding-left: 30px;
+  font-size: 1.1em;
+}
+
+.settings-header {
+  margin-bottom: 0px;
 }

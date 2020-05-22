@@ -128,6 +128,16 @@ class Game {
     return full;
   }
 
+  /*
+  ** Function     : Check if a cell is empty
+  **
+  ** @args        : Board coords
+  ** @Returns     : Boolean
+  */
+  emptyCell(x,y) {
+    return this.board[x][y] == this.blank;
+  }
+
 	/*
   ** Function     : Check if the board is full and nobody has won
   ** @Args        : None 
@@ -145,7 +155,7 @@ class Game {
   ** Function     : Check the board for a winning 
   **                position and return a win object
   ** @Args        : None
-  ** @Returns     : Object
+  ** @Returns     : Boolean
   **
   ** NOTE: I'm going to write this the stupid way so that testing can
   **       continue but it should be refactored later using for-loops
