@@ -99,6 +99,16 @@ class Game {
   }
 
   /*
+  ** Function     : Set players 1 & 2 piece types(images)
+  ** @Args        : Theme key (String)
+  ** @Returns     : None
+  */
+  setPlayersPieceTheme(theme) {
+    this.player_1.setSet(theme);
+    this.player_2.setSet(theme);
+  }
+
+  /*
   ** Function     : Check if a piece can be placed at the coordinate
   ** @Args        : [x,y] board coordinates 
   ** @Returns     : Boolean  
