@@ -108,6 +108,10 @@ class Game {
     this.player_2.setSet(theme);
   }
 
+  getCurrentTheme() {
+    return this.currentPlayer.getSet();
+  }
+
   /*
   ** Function     : Check if a piece can be placed at the coordinate
   ** @Args        : [x,y] board coordinates 

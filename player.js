@@ -4,17 +4,20 @@ class Player {
         var piece;
         var pieceImagePath;
         var playerColor
-        var themes = {
-            dark: "theme-dark/",
-            light: "theme-light/",
-            blue_red: "theme_blue-red/",
-            green_orange: "theme_green-orange/",
-            yellow_purple: "theme_yellow-purple/"
+        var themes;
+        var themeKey;
+        this.themes = {
+            "dark": "theme-dark/",
+            "light": "theme-light/",
+            "blue_red": "theme_blue-red/",
+            "green_orange": "theme_green-orange/",
+            "yellow_purple": "theme_yellow-purple/"
         }
+        this.themeKey       = "dark";
         this.playerColor    = color;
         this.name           = name;
         this.piece          = piece;
-        this.set            = themes.green_orange;
+        this.set            = this.themes.dark;
         this.pieceImagePath = "images/";
     }
 
@@ -34,12 +37,17 @@ class Player {
     getColor() {
         return this.playerColor;
     }
+
+    getSet() {
+        return this.themeKey;
+    }
     
     setName(name) {
         this.name = name;
     }
 
     setSet(theme) {
-        this.set = themes.theme;
+        this.themeKey = theme;
+        this.set = this.themes[theme];
     }
 }
