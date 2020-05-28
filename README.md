@@ -9,9 +9,12 @@ The ability to play the game of TicTacToe
 ## Themes
 Change the theme of the board and pieces
 ### Themes Available
-LIGHT, DARK, BLUE/RED, YELLOW/PURPLE
+LIGHT, DARK, BLUE/RED, YELLOW/PURPLE, GREEN/ORANGE
 ## AI apponent  
 Play against an AI opponent
 ### Hard
+Best move accuracy 95%.
 ### Medium
+Best move accuracy 70%.
 ### Easy
+Best move accuracy 50%.
