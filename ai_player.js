@@ -11,7 +11,7 @@ class AI_Player extends Player {
     }
 
     minimax(board, depth, isMaximazingPlayer) {
-        if(/*current board state is terminal*/) {
+        if(/*current board state is terminal*/true) {
             //return value of board
         }
 
