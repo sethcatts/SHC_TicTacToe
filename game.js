@@ -108,6 +108,19 @@ class Game {
     this.player_2.setSet(theme);
   }
 
+  /*
+  ** Function     : Set player names
+  ** @args        : player{int}, name{string}
+  ** @returns     : none
+  */
+  setPlayerName(player, name) {
+    if(player == 1) {
+      this.player_1.setPlayerName(name);
+    } else if(player == 2) {
+      this.player_2.setPlayerName(name);
+    }
+  }
+
   getCurrentTheme() {
     return this.currentPlayer.getSet();
   }
