@@ -11,7 +11,7 @@ Change the theme of the board and pieces
 ### Themes Available
 LIGHT, DARK, BLUE/RED, YELLOW/PURPLE, GREEN/ORANGE
 ## AI apponent  
-Play against an AI opponent
+Play against an AI opponent that uses the minimax algorithm to find moves
 ### Hard
 Best move accuracy 95%.
 ### Medium
