@@ -1,7 +1,7 @@
 class Game {
   /*
-   * ARGS: number to be squared to create board of size [N x N]
-   */
+  ** ARGS: number to be squared to create board of size [N x N]
+  */
   constructor() {
     var board;
     var gameOver;
@@ -20,10 +20,10 @@ class Game {
   }
 
   /*
-   ** Function    : Create a board of size n^2
-   ** @Args       : Integer
-   ** @Returns    : Array
-   */
+  ** Function    : Create a board of size n^2
+  ** @Args       : Integer
+  ** @Returns    : Array
+  */
   createBoard() {
     let board = [];
     for (let i = 0; i < 3; i++) {
@@ -38,28 +38,28 @@ class Game {
   }
 
   /*
-   ** Function    : Get the current game board array
-   ** @Args       : None
-   ** @Returns    : Array
-   */
+  ** Function    : Get the current game board array
+  ** @Args       : None
+  ** @Returns    : Array
+  */
   getBoard() {
     return this.board;
   }
 
   /*
-   ** Function    : Set the board object to a new array
-   ** @Args       : Array
-   ** @Returns    : None
-   */
+  ** Function    : Set the board object to a new array
+  ** @Args       : Array
+  ** @Returns    : None
+  */
   setBoard(boardArray) {
     this.board = boardArray;
   }
 
   /*
-   ** Function    : Print current state of game board
-   ** @Args       : None
-   ** @Returns    : None
-   */
+  ** Function    : Print current state of game board
+  ** @Args       : None
+  ** @Returns    : None
+  */
   prtBoard() {
     for (let i = 0; i < this.board[0].length; i++) {
       console.log(this.board[i][0] + " " + this.board[i][1] + " " + this.board[i][2]);
@@ -67,10 +67,10 @@ class Game {
   }
 
   /*
-   ** Function    : Place piece on game board
-   ** @Args       : Piece, x-coord, y-coord
-   ** @Returns    : Boolean
-   */
+  ** Function    : Place piece on game board
+  ** @Args       : Piece, x-coord, y-coord
+  ** @Returns    : Boolean
+  */
   placePiece(x, y, p = this.currentPlayer) {
     if(this.legalMove(x, y) && !this.gameOver) {
       this.board[x][y] = p.getPiece();
@@ -83,10 +83,10 @@ class Game {
   }
 
   /*
-   ** Function    : Rotate the current moving player according to the game
-   ** @Args       : None
-   ** @Returns    : Current player according to the game class
-   */
+  ** Function    : Rotate the current moving player according to the game
+  ** @Args       : None
+  ** @Returns    : Current player according to the game class
+  */
   switchMovingPlayer() {
     if(this.currentPlayer == this.player_1) {
       this.currentPlayer = this.player_2;
