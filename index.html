@@ -6,7 +6,6 @@
     <script src="game.js"></script>
     <script src="player.js"></script>
     <script src="ai_player.js"></script>
-    <script src="testModule.js"></script>
     <script src="instance.js"></script>
   </header>
 
@@ -15,6 +14,7 @@
     <div id="menu_buttons">
       <button class="menu_button" onclick="newGame('dark')">NEW GAME</button>
       <button class="menu_button" onclick="toggleMenu()">SETTINGS</button>
+      <button class="menu_button" onclick="gameOver()">TEST</button>
     </div>
     <div id='game'>
       <div class="game_board">
@@ -78,14 +78,28 @@
         </div>
       </div>
     </div>
+    <div id="popup_gameoverbg">
+      <div id="popup_gameover">
+        <h1>Gameover!</h1>
+        <h2>Player Wins!</h2>
+      </div>
+    </div>
     <script type="text/javascript">
       var popup_menu = document.getElementById("popup_bg");
-
+      var popup_gameover = document.getElementById("popup_gameoverbg");
       function toggleMenu() {
         if (popup_menu.style.display != "block") {
           popup_menu.style.display = "block";
         } else {
           popup_menu.style.display = "none";
+        }
+      }
+
+      function gameOver() {
+        if (popup_gameover.style.display != "block") {
+          popup_gameover.style.display = "block";
+        } else {
+          popup_gameover.style.display = "none";
         }
       }
 

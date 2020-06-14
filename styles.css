@@ -95,7 +95,7 @@ img {
 	top:1px;
 }
 
-#popup_bg {
+#popup_bg, #popupgameoverbg {
   position: fixed;
   top: 0;
   left: 0;
@@ -105,7 +105,7 @@ img {
   display: none;
 }
 
-#popup_menu {
+#popup_menu, #popup_gameover {
   position: fixed;
   width: 800px;
   height: 500px;
