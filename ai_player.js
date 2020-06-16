@@ -66,7 +66,7 @@ class AI_Player extends Player {
                 for(var j = 0; j < 3; j++) {
                     if(board[i][j] == "[ ]") {
                         board[i][j] = this.piece;
-                        best = Math.max(best, minimax(board, depth, !isMax));
+                        best = Math.max(best, minimax(board, depth++, !isMax));
                         board[i][j] = "[ ]";
                     }
                 }
@@ -78,7 +78,7 @@ class AI_Player extends Player {
                 for(var j = 0; j < 3; j++) {
                     if(board[i][j] == "[ ]") {
                         board[i][j] = this.piece;
-                        best = Math.min(best, minimax(board, depth, !isMax));
+                        best = Math.min(best, minimax(board, depth++, !isMax));
                         board[i][j] = "[ ]";
                     }
                 }
@@ -90,8 +90,19 @@ class AI_Player extends Player {
     bestMove(board) {
         var bestVal = -Infinity;
         var bestMove = [-1,-1];
-        
-
+        for(var i = 0; i < 3; i++) {
+            for(var j = 0; j < 3; j++) {
+                if(board[i][j] == "[ ]") {
+                    board[i][j] = this.piece;
+                    var moveVal = this.minimax(board, 0, false);
+                    board[i][j] = "[ ]";
+                    if(moveVal > bestVal) {
+                        bestMove = [i, j];
+                    }
+                }
+            }
+        }
+        return bestMove;
     }
 
     isMovesLeft(board) {
