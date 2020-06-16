@@ -85,7 +85,13 @@ class AI_Player extends Player {
             }
             return best;
         }
-        return best;
+    }
+
+    bestMove(board) {
+        var bestVal = -Infinity;
+        var bestMove = [-1,-1];
+        
+
     }
 
     isMovesLeft(board) {
