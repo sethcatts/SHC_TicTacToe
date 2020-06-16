@@ -1,7 +1,4 @@
 class Game {
-  /*
-  ** ARGS: number to be squared to create board of size [N x N]
-  */
   constructor() {
     var board;
     var gameOver;
@@ -15,8 +12,6 @@ class Game {
     this.player_2       = new Player("Player Two (O)", "o", "orange");
     this.currentPlayer  = this.player_1;
     this.waitingPlayer  = this.player_2;
-    console.log("NEW GAME CREATED");
-    //console.table(this);
   }
 
   /*
@@ -56,7 +51,7 @@ class Game {
   }
 
   /*
-  ** Function    : Print current state of game board
+  ** Function    : Print current state of game board to the console
   ** @Args       : None
   ** @Returns    : None
   */
