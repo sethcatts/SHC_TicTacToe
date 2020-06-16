@@ -1,4 +1,14 @@
 //Create Game Object
+var ai = new AI_Player("testy", "x", "White", 0);
+var testboard = [   
+                ["x","[ ]","[ ]"],
+                ["x","[ ]","[ ]"],
+                ["[ ]","[ ]","[ ]"]
+            ]
+console.log(ai.bestMove(testboard));
+
+
+
 var game_instance = new Game();
 
 function selectCell(idn) {
