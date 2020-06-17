@@ -8,6 +8,7 @@ class AI_Player extends Player {
         this.difficulty = difficulty;
     }
 
+    //Appears to return the correct results based on one or two tests
     evaluate(board) {
         //Check Rows
         for(var i = 0; i < 3; i++) {
@@ -53,6 +54,7 @@ class AI_Player extends Player {
     }
 
     minimax(board, depth, max) {
+        //Calculate initial score
         var score = this.evaluate(board);
 
         //Game ending cases
@@ -62,8 +64,9 @@ class AI_Player extends Player {
             return 0;
         }
 
+        console.log("Got here");
         if(max) {
-            var best = -11;
+            var best = -1000;
             for(var i = 0; i < 3; i++) {
                 for(var j = 0; j < 3; j++) {
                     if(board[i][j] == "[ ]") {
@@ -75,7 +78,7 @@ class AI_Player extends Player {
             }
             return best;
         } else {
-            var best = 11;
+            var best = 1000;
             for(var i = 0; i < 3; i++) {
                 for(var j = 0; j < 3; j++) {
                     if(board[i][j] == "[ ]") {
@@ -90,13 +93,14 @@ class AI_Player extends Player {
     }
 
     findBestMove(board) {
-        var bestVal = -11;
+        var bestVal = -1000;
         var bestMove = [-1,-1];
         for(var i = 0; i < 3; i++) {
             for(var j = 0; j < 3; j++) {
                 if(board[i][j] == "[ ]") {
                     board[i][j] = this.piece;
                     var moveVal = this.minimax(board, 0, false);
+                    //console.log("Move val: " + moveVal);
                     board[i][j] = "[ ]";
                     if(moveVal > bestVal) {
                         bestMove = [i, j];

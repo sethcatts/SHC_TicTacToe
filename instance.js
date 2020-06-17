@@ -3,7 +3,7 @@ var ai = new AI_Player("testy", "x", "White", 0);
 var testboard = [   
                 ["x","o","o"],
                 ["x","o","x"],
-                ["o","[ ]","[ ]"]
+                ["[ ]","x","[ ]"]
             ];
 console.log(testboard);
 console.log(ai.evaluate(testboard));
