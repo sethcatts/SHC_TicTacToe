@@ -1,11 +1,13 @@
 //Create Game Object
 var ai = new AI_Player("testy", "x", "White", 0);
 var testboard = [   
-                ["x","[ ]","[ ]"],
-                ["x","[ ]","[ ]"],
-                ["[ ]","[ ]","[ ]"]
-            ]
-console.log(ai.bestMove(testboard));
+                ["x","o","o"],
+                ["x","o","x"],
+                ["o","[ ]","[ ]"]
+            ];
+console.log(testboard);
+console.log(ai.evaluate(testboard));
+ai.findBestMove(testboard);
 
 
 
