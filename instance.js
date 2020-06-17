@@ -2,11 +2,12 @@
 var ai = new AI_Player("testy", "x", "White", 0);
 var testboard = [   
                 ["[ ]","o","o"],
-                ["x","x","o"],
+                ["x","[ ]","x"],
                 ["o","[ ]","x"]
             ];
 console.log(testboard);
-console.log(ai.evaluate(testboard));
+//console.log(ai.evaluate(testboard));
+console.log("---");
 ai.findBestMove(testboard);
 
 

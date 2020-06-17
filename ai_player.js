@@ -4,6 +4,8 @@ class AI_Player extends Player {
     constructor(name, piece, color, difficulty) {
         super(name, piece, color);
         var enemyPiece;
+        var blank;
+        this.blank = "[ ]";
         this.enemyPiece = "o";
         this.difficulty = difficulty;
     }
@@ -70,10 +72,10 @@ class AI_Player extends Player {
             var best = -1000;
             for(var i = 0; i < 3; i++) {
                 for(var j = 0; j < 3; j++) {
-                    if(board[i][j] == "[ ]") {
+                    if(board[i][j] == this.blank) {
                         board[i][j] = this.piece;
                         best = Math.max(best, this.minimax(board, depth++, !max));
-                        board[i][j] = "[ ]";
+                        board[i][j] = this.blank;
                     }
                 }
             }
@@ -82,10 +84,10 @@ class AI_Player extends Player {
             var best = 1000;
             for(var i = 0; i < 3; i++) {
                 for(var j = 0; j < 3; j++) {
-                    if(board[i][j] == "[ ]") {
+                    if(board[i][j] == this.blank) {
                         board[i][j] = this.piece;
                         best = Math.min(best, this.minimax(board, depth++, !max));
-                        board[i][j] = "[ ]";
+                        board[i][j] = this.blank;
                     }
                 }
             }
@@ -94,35 +96,49 @@ class AI_Player extends Player {
     }
 
     findBestMove(board) {
-        var bestVal = -1000;
+        var bestVal = -Infinity;
         var bestMove = [-1,-1];
         for(var i = 0; i < 3; i++) {
             for(var j = 0; j < 3; j++) {
-                if(board[i][j] == "[ ]") {
+                if(board[i][j] == this.blank) {
+                    console.log("P: " + i + ", " + j);
+                    console.log(this.piece);
                     board[i][j] = this.piece;
-                    var moveVal = this.minimax(board, 0, false);
-                    console.log("Move val: " + moveVal);
-                    board[i][j] = "[ ]";
+                    console.log(board);
+                    let moveVal = this.minimax(board, 0, false);
+                    board[i][j] = this.blank;
                     if(moveVal > bestVal) {
                         bestMove = [i, j];
                     }
                 }
             }
         }
-        console.log("Best Move: " + bestMove[0] + ", " + bestMove[1]);
+        //console.log("Best Move: " + bestMove[0] + ", " + bestMove[1]);
+        //console.log(this.piece);
         return bestMove;
     }
 
     //Checked
     isMovesLeft(board) {
-        var full = false;
+        var full = true;
 	    for (let i = 0; i < 3; i++) {
              for (let j = 0; j < 3; j++) {      
-                if(board[i][j] === "[ ]") {
-                    full = true;
+                if(board[i][j] == this.blank) {
+                    full = false;
                 }
             }
         }
         return full;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
