@@ -95,7 +95,7 @@ img {
 	top:1px;
 }
 
-#popup_bg, #popupgameoverbg {
+#popup_bg, #popup_gameoverbg {
   position: fixed;
   top: 0;
   left: 0;
