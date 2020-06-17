@@ -60,6 +60,7 @@ class AI_Player extends Player {
         //Game ending cases
         if(score == 10 || score == -10) {
             return score;
+        //If there are no moves left
         } else if(!this.isMovesLeft(board)) {
             return 0;
         }
@@ -71,7 +72,7 @@ class AI_Player extends Player {
                 for(var j = 0; j < 3; j++) {
                     if(board[i][j] == "[ ]") {
                         board[i][j] = this.piece;
-                        best = Math.max(best, minimax(board, depth++, !max));
+                        best = Math.max(best, this.minimax(board, depth++, !max));
                         board[i][j] = "[ ]";
                     }
                 }
@@ -83,7 +84,7 @@ class AI_Player extends Player {
                 for(var j = 0; j < 3; j++) {
                     if(board[i][j] == "[ ]") {
                         board[i][j] = this.piece;
-                        best = Math.min(best, minimax(board, depth++, !max));
+                        best = Math.min(best, this.minimax(board, depth++, !max));
                         board[i][j] = "[ ]";
                     }
                 }
@@ -100,7 +101,7 @@ class AI_Player extends Player {
                 if(board[i][j] == "[ ]") {
                     board[i][j] = this.piece;
                     var moveVal = this.minimax(board, 0, false);
-                    //console.log("Move val: " + moveVal);
+                    console.log("Move val: " + moveVal);
                     board[i][j] = "[ ]";
                     if(moveVal > bestVal) {
                         bestMove = [i, j];
@@ -114,11 +115,11 @@ class AI_Player extends Player {
 
     //Checked
     isMovesLeft(board) {
-        var full = true;
+        var full = false;
 	    for (let i = 0; i < 3; i++) {
              for (let j = 0; j < 3; j++) {      
                 if(board[i][j] === "[ ]") {
-                    full = false;
+                    full = true;
                 }
             }
         }
