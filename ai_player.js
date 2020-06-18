@@ -101,12 +101,7 @@ class AI_Player extends Player {
         for(let i = 0; i < 3; i++) {
             for(let j = 0; j < 3; j++) {
                 if(board[i][j] == this.blank) {
-                    console.log("P: " + i + ", " + j);
-                    //console.log(this.piece);
-                    board[i][j] = "R";
-                    console.log(board);
-                    board[0][0] = this.piece;
-                    console.log(board);
+                    board[i][j] = this.piece;
                     let moveVal = this.minimax(board, 0, false);
                     board[i][j] = this.blank;
                     if(moveVal > bestVal) {
@@ -115,8 +110,7 @@ class AI_Player extends Player {
                 }
             }
         }
-        //console.log("Best Move: " + bestMove[0] + ", " + bestMove[1]);
-        //console.log(this.piece);
+        console.log("Best Move: " + bestMove[0] + ", " + bestMove[1]);
         return bestMove;
     }
 

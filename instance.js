@@ -1,8 +1,8 @@
 //Create Game Object
 var ai = new AI_Player("testy", "x", "White", 0);
 var testboard = [   
-                ["[ ]","o","o"],
-                ["x","[ ]","x"],
+                ["x","o","[ ]"],
+                ["[ ]","o","x"],
                 ["o","[ ]","x"]
             ];
 console.log(testboard);
