@@ -58,7 +58,7 @@ class AI_Player extends Player {
     minimax(board, depth, max) {
         //Calculate initial score
         var score = this.evaluate(board);
-
+        console.log("Score: " + score);
         //Game ending cases
         if(score == 10 || score == -10) {
             return score;
@@ -98,12 +98,14 @@ class AI_Player extends Player {
     findBestMove(board) {
         var bestVal = -Infinity;
         var bestMove = [-1,-1];
-        for(var i = 0; i < 3; i++) {
-            for(var j = 0; j < 3; j++) {
+        for(let i = 0; i < 3; i++) {
+            for(let j = 0; j < 3; j++) {
                 if(board[i][j] == this.blank) {
                     console.log("P: " + i + ", " + j);
-                    console.log(this.piece);
-                    board[i][j] = this.piece;
+                    //console.log(this.piece);
+                    board[i][j] = "R";
+                    console.log(board);
+                    board[0][0] = this.piece;
                     console.log(board);
                     let moveVal = this.minimax(board, 0, false);
                     board[i][j] = this.blank;
