@@ -15,9 +15,8 @@ class Game {
   }
 
   /*
-  ** Function    : Create a board of size n^2
-  ** @Args       : Integer
-  ** @Returns    : Array
+  ** @summary            : Create a board of size n^2
+  ** @returns {array}    : Array representing the current game board
   */
   createBoard() {
     let board = [];
@@ -43,8 +42,8 @@ class Game {
 
   /*
   ** Function    : Set the board object to a new array
-  ** @Args       : Array
-  ** @Returns    : None
+  ** @args       : Array
+  ** @returns    : None
   */
   setBoard(boardArray) {
     this.board = boardArray;

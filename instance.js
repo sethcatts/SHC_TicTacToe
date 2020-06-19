@@ -1,4 +1,7 @@
 //Create Game Object
+
+//>add docs comments
+
 var game_instance = new Game();
 var ai_enabled = true;
 game_instance.player_2 = new AI_Player("testy", "x", "White", 0);

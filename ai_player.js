@@ -10,7 +10,11 @@ class AI_Player extends Player {
         this.difficulty = difficulty;
     }
 
-    //Appears to return the correct results based on one or two tests
+    /*
+    **
+    **
+    **
+    */
     evaluate(board) {
         //Check Rows
         for(var i = 0; i < 3; i++) {
