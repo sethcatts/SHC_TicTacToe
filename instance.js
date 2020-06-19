@@ -10,7 +10,7 @@ console.log(testboard);
 console.log("---");
 ai.findBestMove(testboard);
 
-
+var ai_enabled = false;
 
 var game_instance = new Game();
 
