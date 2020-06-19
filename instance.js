@@ -1,23 +1,15 @@
 //Create Game Object
-var ai = new AI_Player("testy", "x", "White", 0);
-var testboard = [   
-                ["x","[ ]","[ ]"],
-                ["o","[ ]","[ ]"],
-                ["x","o","x"]
-            ];
-console.log(testboard);
-//console.log(ai.evaluate(testboard));
-console.log("---");
-ai.findBestMove(testboard);
-
-var ai_enabled = false;
-
 var game_instance = new Game();
+var ai_enabled = true;
+game_instance.player_2 = new AI_Player("testy", "x", "White", 0);
 
 function selectCell(idn) {
     var cell = document.getElementById(idn[0] + "" + idn[1]);
     var elem = document.createElement('img');
     elem.className = "selected_cell";
+
+
+    //How to allow the GUI to reflect AI moves. Kinda hard
     if(!game_instance.gameOver && game_instance.legalMove(idn[0], idn[1])) {
         game_instance.placePiece(idn[0],idn[1]);
         elem.src = game_instance.currentPlayer.getPieceImage();
