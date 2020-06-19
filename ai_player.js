@@ -66,7 +66,7 @@ class AI_Player extends Player {
         } else if(!this.isMovesLeft(board)) {
             return 0;
         }
-
+        
         console.log("Got here");
         if(max) {
             var best = -1000;
