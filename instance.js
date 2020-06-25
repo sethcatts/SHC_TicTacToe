@@ -23,7 +23,14 @@ function selectCell(idn) {
     }
 
     if(ai_enabled && game_instance.currentPlayer != game_instance.player_2) {
-        //Make ai move
+        var ai_move_cell = [0,0];
+        var ai_move_elem = document.createElement('img');
+        var ai_move_pos = game_instance.player_2.findBestMove(game_instance.board);
+        game_instance.placePiece(ai_move_pos[0], ai_move_pos[1]);
+        ai_move_elem.className = "selected_cell";
+        ai_move_elem.src = game_instance.player_2.getPieceImage();
+        ai_move_cell = document.getElementById(ai_move_pos[0] + "" + ai_move_pos[1]);
+        ai_move_cell.appendChild(ai_move_elem);
     }
 
     //COPY PASTE -- Make one function?
