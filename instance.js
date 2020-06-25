@@ -10,9 +10,9 @@ function selectCell(idn) {
     var cell = document.getElementById(idn[0] + "" + idn[1]);
     var elem = document.createElement('img');
     elem.className = "selected_cell";
+    elem.src = game_instance.currentPlayer.getPieceImage();
     if(!game_instance.gameOver && game_instance.legalMove(idn[0], idn[1])) {
         game_instance.placePiece(idn[0],idn[1]);
-        elem.src = game_instance.currentPlayer.getPieceImage();
         cell.appendChild(elem);
     } 
     if(game_instance.checkForWin()) {
@@ -22,15 +22,19 @@ function selectCell(idn) {
         alert("Game Over! \n" + "The result is a tie!");
     }
 
-    if(ai_enabled && game_instance.currentPlayer != game_instance.player_2) {
-        var ai_move_cell = [0,0];
-        var ai_move_elem = document.createElement('img');
-        var ai_move_pos = game_instance.player_2.findBestMove(game_instance.board);
-        game_instance.placePiece(ai_move_pos[0], ai_move_pos[1]);
-        ai_move_elem.className = "selected_cell";
-        ai_move_elem.src = game_instance.player_2.getPieceImage();
-        ai_move_cell = document.getElementById(ai_move_pos[0] + "" + ai_move_pos[1]);
-        ai_move_cell.appendChild(ai_move_elem);
+    
+
+    if(ai_enabled && game_instance.currentPlayer == game_instance.player_2) {
+        setTimeout(function() {
+            var ai_move_cell = [0,0];
+            var ai_move_elem = document.createElement('img');
+            var ai_move_pos = game_instance.player_2.findBestMove(game_instance.board);
+            game_instance.placePiece(ai_move_pos[0], ai_move_pos[1]);
+            ai_move_elem.className = "selected_cell";
+            ai_move_elem.src = game_instance.player_2.getPieceImage();
+            ai_move_cell = document.getElementById(ai_move_pos[0] + "" + ai_move_pos[1]);
+            ai_move_cell.appendChild(ai_move_elem);
+        }, 1000);
     }
 
     //COPY PASTE -- Make one function?
@@ -40,6 +44,7 @@ function selectCell(idn) {
     if(game_instance.checkForTie()) {
         alert("Game Over! \n" + "The result is a tie!");
     }
+    console.log("CurrentMover: " + game_instance.currentPlayer.getName());
 }
 
 //Sloppy
@@ -47,6 +52,9 @@ function newGame() {
     var currentTheme = game_instance.getCurrentTheme();
     game_instance = new Game();
     game_instance.setPlayersPieceTheme(currentTheme);
+    if(ai_enabled) {
+        game_instance.player_2 = new AI_Player("testy", "x", "White", 0);
+    }
     clearBoard();
 }
 
