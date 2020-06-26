@@ -23,7 +23,7 @@ function selectCell(idn) {
     }
 
     
-
+    //Set timeout repeats?
     if(ai_enabled && game_instance.currentPlayer == game_instance.player_2) {
         setTimeout(function() {
             var ai_move_cell = [0,0];
