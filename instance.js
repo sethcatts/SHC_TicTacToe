@@ -20,16 +20,9 @@ function selectCell(idn) {
         game_instance.placePiece(idn[0],idn[1]);
         cell.appendChild(elem);
     } 
-    if(game_instance.checkForWin()) {
-        alert("Game Over! \n" + game_instance.currentPlayer.getName() + " Wins!");
-    }
-    if(game_instance.checkForTie()) {
-        alert("Game Over! \n" + "The result is a tie!");
-    }
+    checkGameStatus();
 
-    
-    //Set timeout repeats?
-    if(ai_enabled && game_instance.currentPlayer == game_instance.player_2) {
+    if(ai_enabled && game_instance.currentPlayer == game_instance.player_2 && !game_instance.gameOver) {
         setTimeout(function() {
             var ai_move_cell = [0,0];
             var ai_move_elem = document.createElement('img');
@@ -42,15 +35,18 @@ function selectCell(idn) {
         }, 1000);
     }
 
-    //COPY PASTE -- Make one function?
+    checkGameStatus();
+}
+
+function checkGameStatus() {
     if(game_instance.checkForWin()) {
         alert("Game Over! \n" + game_instance.currentPlayer.getName() + " Wins!");
     }
     if(game_instance.checkForTie()) {
         alert("Game Over! \n" + "The result is a tie!");
     }
-    //console.log("CurrentMover: " + game_instance.currentPlayer.getName());
 }
+
 
 //Sloppy
 function newGame() {
