@@ -16,6 +16,12 @@ function selectCell(idn) {
     var elem = document.createElement('img');
     elem.className = "selected_cell";
     elem.src = game_instance.currentPlayer.getPieceImage();
+    /*
+    *
+    *   Need to add logic here to dis-allow for human to make moves when it is 
+    *   the AIs turn to select a cell/move
+    * 
+    */
     if(!game_instance.gameOver && game_instance.legalMove(idn[0], idn[1])) {
         game_instance.placePiece(idn[0],idn[1]);
         cell.appendChild(elem);
