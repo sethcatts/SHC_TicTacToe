@@ -106,7 +106,7 @@
       }
 
       function drawPieceShadow(idn) {
-        var image = game_instance.waitingPlayer.getPieceImage();
+        var image = game_instance.currentPlayer.getPieceImage();
         var cell = document.getElementById(idn[0] + "" + idn[1]);
         if (game_instance.emptyCell(idn[0], idn[1]) && !game_instance.gameOver) {
           cell.style.backgroundImage = "url('./" + image + "')";

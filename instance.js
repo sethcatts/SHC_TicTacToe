@@ -4,7 +4,12 @@
 
 var game_instance = new Game();
 var ai_enabled = true;
-game_instance.player_2 = new AI_Player("testy", "x", "White", 0);
+if(ai_enabled) {
+    game_instance.player_2 = new AI_Player("testy", "o", "White", 0);
+    game_instance.currentPlayer = game_instance.player_1;
+}
+
+console.log("Current Player Piece: " + game_instance.currentPlayer.getPiece());
 
 function selectCell(idn) {
     var cell = document.getElementById(idn[0] + "" + idn[1]);
@@ -44,7 +49,7 @@ function selectCell(idn) {
     if(game_instance.checkForTie()) {
         alert("Game Over! \n" + "The result is a tie!");
     }
-    console.log("CurrentMover: " + game_instance.currentPlayer.getName());
+    //console.log("CurrentMover: " + game_instance.currentPlayer.getName());
 }
 
 //Sloppy

@@ -54,7 +54,7 @@ class Game {
   ** @Args       : None
   ** @Returns    : None
   */
-  prtBoard() {
+  printBoard() {
     for (let i = 0; i < this.board[0].length; i++) {
       console.log(this.board[i][0] + " " + this.board[i][1] + " " + this.board[i][2]);
     }
@@ -69,6 +69,7 @@ class Game {
     if(this.legalMove(x, y) && !this.gameOver) {
       this.board[x][y] = p.getPiece();
       this.switchMovingPlayer();
+      this.printBoard();
       return true;
     } else {
       console.error("GAME CLASS ERROR: Attempted illegal move");
