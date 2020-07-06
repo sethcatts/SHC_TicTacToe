@@ -54,7 +54,7 @@ function newGame() {
     game_instance = new Game();
     game_instance.setPlayersPieceTheme(currentTheme);
     if(ai_enabled) {
-        game_instance.player_2 = new AI_Player("testy", "x", "White", 0);
+        game_instance.player_2 = new AI_Player("testy", "o", "White", 0);
     }
     clearBoard();
 }
