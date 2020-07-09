@@ -70,6 +70,8 @@ class Game {
       this.board[x][y] = p.getPiece();
       this.switchMovingPlayer();
       this.printBoard();
+      this.checkForWin();
+      this.checkForTie();
       return true;
     } else {
       console.error("GAME CLASS ERROR: Attempted illegal move");

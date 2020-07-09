@@ -36,19 +36,21 @@ function selectCell(idn) {
             game_instance.placePiece(ai_move_pos[0], ai_move_pos[1]);
             ai_move_elem.className = "selected_cell";
             ai_move_elem.src = game_instance.player_2.getPieceImage();
+            console.log(game_instance.player_2.getPieceImage());
             ai_move_cell = document.getElementById(ai_move_pos[0] + "" + ai_move_pos[1]);
             ai_move_cell.appendChild(ai_move_elem);
         }, 1000);
+        checkGameStatus();
     }
 
-    checkGameStatus();
+    
 }
 
 function checkGameStatus() {
-    if(game_instance.checkForWin()) {
+    if(game_instance.checkForWin() && game_instance.gameOver) {
         alert("Game Over! \n" + game_instance.currentPlayer.getName() + " Wins!");
     }
-    if(game_instance.checkForTie()) {
+    if(game_instance.checkForTie() && game_instance.gameOver) {
         alert("Game Over! \n" + "The result is a tie!");
     }
 }
@@ -78,7 +80,7 @@ function changeTheme(theme) {
     game_instance.setPlayersPieceTheme(theme);
     var page = document.documentElement;
     var themes = {
-        "dark"          : ["white", "white", "white", "rgba(78, 78, 78, 0.5)", "white", "black", "none"],
+        "dark"          : ["black", "white", "white", "rgba(78, 78, 78, 0.5)", "white", "black", "none"],
         "light"         : ["white", "black", "black", "rgba(78, 78, 78, 0.5)", "black", "white", "none"],
         "blue_red"      : ["rgb(42,185,255)", "white", "white", "rgba(78, 78, 78, 0.5)", "black", "black", 
                            "linear-gradient(90deg, rgba(42,185,255,1) 0%, rgba(255,57,57,1) 100%)"],
