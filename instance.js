@@ -2,13 +2,17 @@
 var game_instance = new Game();
 
 /**
- * @description Fill in an index on the board with the provided image
+ * @description Add img provided at path at index
+ * @note NO LOGIC
  * @param {array} idn 
  * @param {string} imgPath 
  * @returns {none}
  */
 function fillCell(idn, imgPath) {
-    
+    var elem        = document.createElement('img');
+    elem.className  = "selectedCell";
+    elem.src        = imgPath;
+    document.getElementById(idn[0] + "" + idn[1]).appendChild(elem);
 }
 
 
