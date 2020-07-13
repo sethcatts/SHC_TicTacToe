@@ -71,6 +71,8 @@ class AI_Player extends Player {
             return 0;
         }
 
+
+        //------------------------------------------------------------------------------------!!!
         console.log("Got here");
         if(max) {
             var best = -1000;
