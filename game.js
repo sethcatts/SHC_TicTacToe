@@ -14,7 +14,7 @@ class Game {
     this.waitingPlayer  = this.player_2;
   }
 
-  /*
+  /**
   ** @summary            : Create a board of size n^2
   ** @returns {array}    : Array representing the current game board
   */
@@ -31,7 +31,7 @@ class Game {
     return board;
   }
 
-  /*
+  /**
   ** Function    : Get the current game board array
   ** @Args       : None
   ** @Returns    : Array
@@ -40,7 +40,7 @@ class Game {
     return this.board;
   }
 
-  /*
+  /**
   ** Function    : Set the board object to a new array
   ** @args       : Array
   ** @returns    : None

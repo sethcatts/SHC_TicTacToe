@@ -1,17 +1,23 @@
-//Create Game Object
-
-//>add docs comments
-
+//Create game object instance
 var game_instance = new Game();
-var ai_enabled = true;
-if(ai_enabled) {
-    game_instance.player_2 = new AI_Player("testy", "o", "White", 0);
-    game_instance.currentPlayer = game_instance.player_1;
+
+/**
+ * @description Add img provided at path at index
+ * @note NO LOGIC
+ * @param {array} idn 
+ * @param {string} imgPath 
+ * @returns {none}
+ */
+function fillCell(idn, imgPath) {
+    var elem        = document.createElement('img');
+    elem.className  = "selectedCell";
+    elem.src        = imgPath;
+    document.getElementById(idn[0] + "" + idn[1]).appendChild(elem);
 }
 
-console.log("Current Player Piece: " + game_instance.currentPlayer.getPiece());
 
-function selectCell(idn) {
+
+function selectCell(idn, imgPath) {
     var cell = document.getElementById(idn[0] + "" + idn[1]);
     var elem = document.createElement('img');
     elem.className = "selected_cell";
