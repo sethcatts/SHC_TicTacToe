@@ -63,6 +63,10 @@ function clearBoard() {
 }
 
 //Sloppy
+/**
+ * 
+ * @param {string} theme 
+ */
 function changeTheme(theme) { 
     game_instance.setPlayersPieceTheme(theme);
     var page = document.documentElement;
