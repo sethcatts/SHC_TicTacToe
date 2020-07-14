@@ -41,18 +41,20 @@ function checkGameStatus() {
 }
 
 
-//Sloppy
+/**
+ * @desc Create a new game
+ */
 function newGame() {
     var currentTheme = game_instance.getCurrentTheme();
     game_instance = new Game();
     game_instance.setPlayersPieceTheme(currentTheme);
-    if(ai_enabled) {
-        game_instance.player_2 = new AI_Player("testy", "o", "White", 0);
-    }
     clearBoard();
 }
 
 //I find it very sus that this works, should probably refactor at some point
+/**
+ * @desc Clear game board (visual)
+ */
 function clearBoard() {
     let elems_cell = document.getElementsByClassName("selected_cell");
     while(elems_cell.length > 0) {
