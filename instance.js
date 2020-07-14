@@ -64,7 +64,7 @@ function clearBoard() {
 
 //Sloppy
 /**
- * 
+ * @desc Change the board & piece theme
  * @param {string} theme 
  */
 function changeTheme(theme) { 
