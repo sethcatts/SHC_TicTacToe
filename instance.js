@@ -2,63 +2,42 @@
 var game_instance = new Game();
 
 /**
- * @description Add img provided at path at index
- * @note NO LOGIC
- * @param {array} idn 
- * @param {string} imgPath 
- * @returns {none}
+ * @desc Add piece to board
+ * @param {array} i - Board index
+ * @param {string} imgPath - Path to image
  */
-function fillCell(idn, imgPath) {
+function fillCell(i, imgPath) {
     var elem        = document.createElement('img');
     elem.className  = "selectedCell";
     elem.src        = imgPath;
-    document.getElementById(idn[0] + "" + idn[1]).appendChild(elem);
+    document.getElementById(i[0] + "" + i[1]).appendChild(elem);
 }
 
 
-
-function selectCell(idn, imgPath) {
-    var cell = document.getElementById(idn[0] + "" + idn[1]);
-    var elem = document.createElement('img');
-    elem.className = "selected_cell";
-    elem.src = game_instance.currentPlayer.getPieceImage();
-    /*
-    *
-    *   Need to add logic here to dis-allow for human to make moves when it is 
-    *   the AIs turn to select a cell/move
-    * 
-    */
-    if(!game_instance.gameOver && game_instance.legalMove(idn[0], idn[1])) {
-        game_instance.placePiece(idn[0],idn[1]);
-        cell.appendChild(elem);
-    } 
-    checkGameStatus();
-
-    if(ai_enabled && game_instance.currentPlayer == game_instance.player_2 && !game_instance.gameOver) {
-        setTimeout(function() {
-            var ai_move_cell = [0,0];
-            var ai_move_elem = document.createElement('img');
-            var ai_move_pos = game_instance.player_2.findBestMove(game_instance.board);
-            game_instance.placePiece(ai_move_pos[0], ai_move_pos[1]);
-            ai_move_elem.className = "selected_cell";
-            ai_move_elem.src = game_instance.player_2.getPieceImage();
-            console.log(game_instance.player_2.getPieceImage());
-            ai_move_cell = document.getElementById(ai_move_pos[0] + "" + ai_move_pos[1]);
-            ai_move_cell.appendChild(ai_move_elem);
-        }, 1000);
-        checkGameStatus();
-    }
-
-    
+/**
+ * @desc Perform a (game) move
+ * @param {array} i - Board Index
+ */
+function selectCell(i) {
+    game_instance.placePiece(i[0], i[1]);
+    fillCell(i[0], i[1]);
 }
 
+/**
+ * @desc Check if there is a gameover state
+ * @returns {boolean} status
+ */
 function checkGameStatus() {
+    var status = false;
     if(game_instance.checkForWin() && game_instance.gameOver) {
         alert("Game Over! \n" + game_instance.currentPlayer.getName() + " Wins!");
+        status = true;
     }
     if(game_instance.checkForTie() && game_instance.gameOver) {
         alert("Game Over! \n" + "The result is a tie!");
+        status = true;
     }
+    return status;
 }
 
 
