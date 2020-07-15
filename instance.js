@@ -1,77 +1,66 @@
-//Create Game Object
-
-//>add docs comments
-
+//Create game object instance
 var game_instance = new Game();
-var ai_enabled = true;
-if(ai_enabled) {
-    game_instance.player_2 = new AI_Player("testy", "o", "White", 0);
-    game_instance.currentPlayer = game_instance.player_1;
-}
 
-console.log("Current Player Piece: " + game_instance.currentPlayer.getPiece());
-
-function selectCell(idn) {
-    var cell = document.getElementById(idn[0] + "" + idn[1]);
-    var elem = document.createElement('img');
-    elem.className = "selected_cell";
-    elem.src = game_instance.currentPlayer.getPieceImage();
-    /*
-    *
-    *   Need to add logic here to dis-allow for human to make moves when it is 
-    *   the AIs turn to select a cell/move
-    * 
-    */
-    if(!game_instance.gameOver && game_instance.legalMove(idn[0], idn[1])) {
-        game_instance.placePiece(idn[0],idn[1]);
-        cell.appendChild(elem);
-    } 
-    checkGameStatus();
-
-    if(ai_enabled && game_instance.currentPlayer == game_instance.player_2 && !game_instance.gameOver) {
-        setTimeout(function() {
-            var ai_move_cell = [0,0];
-            var ai_move_elem = document.createElement('img');
-            var ai_move_pos = game_instance.player_2.findBestMove(game_instance.board);
-            game_instance.placePiece(ai_move_pos[0], ai_move_pos[1]);
-            ai_move_elem.className = "selected_cell";
-            ai_move_elem.src = game_instance.player_2.getPieceImage();
-            console.log(game_instance.player_2.getPieceImage());
-            ai_move_cell = document.getElementById(ai_move_pos[0] + "" + ai_move_pos[1]);
-            ai_move_cell.appendChild(ai_move_elem);
-        }, 1000);
-        checkGameStatus();
-    }
-
-    
+/**
+ * @desc Add piece to board
+ * @param {array} i - Board index
+ * @param {string} imgPath - Path to image
+ */
+function fillCell(i, imgPath) {
+    var elem        = document.createElement('img');
+    elem.className  = "selectedCell";
+    elem.src        = imgPath;
+    document.getElementById(i[0] + "" + i[1]).appendChild(elem);
 }
 
 
 /**
+ * @desc Perform a (game) move
+ * @param {array} i - Board Index
+ */
+function selectCell(i) {
+    game_instance.placePiece(i[0], i[1]);
+    fillCell(i[0], i[1]);
+}
+
+<<<<<<< HEAD
+
+/**
  * @desc Provide an alert if the game is over.
+=======
+/**
+ * @desc Check if there is a gameover state
+ * @returns {boolean} status
+>>>>>>> 39e2c9938081f3bb092b806c88c8196568a09659
  */
 function checkGameStatus() {
+    var status = false;
     if(game_instance.checkForWin() && game_instance.gameOver) {
         alert("Game Over! \n" + game_instance.currentPlayer.getName() + " Wins!");
+        status = true;
     }
     if(game_instance.checkForTie() && game_instance.gameOver) {
         alert("Game Over! \n" + "The result is a tie!");
+        status = true;
     }
+    return status;
 }
 
 
-//Sloppy
+/**
+ * @desc Create a new game
+ */
 function newGame() {
     var currentTheme = game_instance.getCurrentTheme();
     game_instance = new Game();
     game_instance.setPlayersPieceTheme(currentTheme);
-    if(ai_enabled) {
-        game_instance.player_2 = new AI_Player("testy", "o", "White", 0);
-    }
     clearBoard();
 }
 
 //I find it very sus that this works, should probably refactor at some point
+/**
+ * @desc Clear game board (visual)
+ */
 function clearBoard() {
     let elems_cell = document.getElementsByClassName("selected_cell");
     while(elems_cell.length > 0) {
@@ -80,6 +69,10 @@ function clearBoard() {
 }
 
 //Sloppy
+/**
+ * @desc Change the board & piece theme
+ * @param {string} theme 
+ */
 function changeTheme(theme) { 
     game_instance.setPlayersPieceTheme(theme);
     var page = document.documentElement;
