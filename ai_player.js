@@ -1,6 +1,18 @@
 //https://www.geeksforgeeks.org/minimax-algorithm-in-game-theory-set-3-tic-tac-toe-ai-finding-optimal-move/
 
+
+/**
+ * @class AI Player
+ */
 class AI_Player extends Player {
+
+    /**
+     * @constructor - ai player class
+     * @param {string} name 
+     * @param {*} piece 
+     * @param {*} color 
+     * @param {*} difficulty 
+     */
     constructor(name, piece, color, difficulty) {
         super(name, piece, color);
         var enemyPiece;
@@ -10,11 +22,10 @@ class AI_Player extends Player {
         this.difficulty = difficulty;
     }
 
-    /*
-    **
-    **
-    **
-    */
+    /**
+     * @desc check for a win
+     * @param {array} board 
+     */
     evaluate(board) {
         //Check Rows
         for(var i = 0; i < 3; i++) {
@@ -59,6 +70,12 @@ class AI_Player extends Player {
         return 0;
     }
 
+    /**
+     * @desc Get best move from board
+     * @param {array} board 
+     * @param {int} depth 
+     * @param {int} max 
+     */
     minimax(board, depth, max) {
         //Calculate initial score
         var score = this.evaluate(board);
@@ -101,6 +118,10 @@ class AI_Player extends Player {
         }
     }
 
+    /**
+     * @desc Get best single move
+     * @param {array} board 
+     */
     findBestMove(board) {
         var bestVal = -Infinity;
         var bestMove = [-1,-1];
@@ -121,7 +142,10 @@ class AI_Player extends Player {
         return bestMove;
     }
 
-    //Checked
+    /**
+     * @desc Check for empty squares on the board
+     * @param {array} board 
+     */
     isMovesLeft(board) {
         var full = true;
 	    for (let i = 0; i < 3; i++) {
