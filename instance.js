@@ -46,6 +46,10 @@ function selectCell(idn) {
     
 }
 
+
+/**
+ * @desc Provide an alert if the game is over.
+ */
 function checkGameStatus() {
     if(game_instance.checkForWin() && game_instance.gameOver) {
         alert("Game Over! \n" + game_instance.currentPlayer.getName() + " Wins!");
