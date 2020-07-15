@@ -21,6 +21,9 @@ class Player {
         this.pieceImagePath = "images/";
     }
 
+    /**
+     * @returns objects name property
+     */
     getName() {
         return this.name;
     }
