@@ -29,19 +29,23 @@ class Player {
     }
 
     /**
-     * @desc get name
+     * @desc Get name
      * @returns {string} - object's name property
      */
     getName() {
         return this.name;
     }
 
+    /**
+     * @desc Get player piece
+     * @returns {char} - object piece 
+     */
     getPiece() {
         return this.piece;
     }
 
     /**
-     * @desc get piece image path for this player
+     * @desc Get piece image path for this player
      * @returns {string} piece image path
      */
     getPieceImage() {
