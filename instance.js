@@ -23,15 +23,10 @@ function selectCell(i) {
     fillCell(i[0], i[1]);
 }
 
-<<<<<<< HEAD
 
 /**
  * @desc Provide an alert if the game is over.
-=======
-/**
- * @desc Check if there is a gameover state
- * @returns {boolean} status
->>>>>>> 39e2c9938081f3bb092b806c88c8196568a09659
+ * @returns {boolean} true if game is over
  */
 function checkGameStatus() {
     var status = false;

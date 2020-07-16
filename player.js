@@ -53,6 +53,10 @@ class Player {
         return "" + this.pieceImagePath + this.set + this.piece + "_1.png"; 
     }
 
+    /**
+     * @desc Get the color of the player from the object property
+     * @returns {string} Player color
+     */
     getColor() {
         return this.playerColor;
     }
