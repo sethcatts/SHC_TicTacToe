@@ -1,4 +1,11 @@
 class Player {
+    /**
+     * @constructor
+     * @desc Player constructor
+     * @param {string} name - player name
+     * @param {char} piece - (x or o) 
+     * @param {string} color - color
+     */
     constructor(name, piece, color) {
         var name;
         var piece;
@@ -22,7 +29,8 @@ class Player {
     }
 
     /**
-     * @returns objects name property
+     * @desc get name
+     * @returns {string} - object's name property
      */
     getName() {
         return this.name;
@@ -32,6 +40,10 @@ class Player {
         return this.piece;
     }
 
+    /**
+     * @desc get piece image path for this player
+     * @returns {string} piece image path
+     */
     getPieceImage() {
         let p = Math.floor(Math.random() * 3) + 1;
         return "" + this.pieceImagePath + this.set + this.piece + "_1.png"; 
