@@ -1,23 +1,23 @@
 class Game {
+  /**
+   * @constructor
+   * @desc Game constructor
+   * @implements {player} Player
+   */
   constructor() {
-    var board;
-    var gameOver;
-    var blank;
-    var currentPlayer;
-    var waitingPlayer;
     this.blank 		      = "[ ]";
     this.board 		      = this.createBoard();
     this.gameOver       = false;
-    this.player_1       = new Player("Player One (X)", "x", "white");
-    this.player_2       = new Player("Player Two (O)", "o", "orange");
+    this.player_1       = new Player("Player One (X)", "x");
+    this.player_2       = new Player("Player Two (O)", "o");
     this.currentPlayer  = this.player_1;
     this.waitingPlayer  = this.player_2;
   }
 
   /**
-  ** @summary            : Create a board of size n^2
-  ** @returns {array}    : Array representing the current game board
-  */
+   * @desc Create a board of size n^2
+   * @returns {array} Array representing the current game board
+   */
   createBoard() {
     let board = [];
     for (let i = 0; i < 3; i++) {
@@ -32,19 +32,17 @@ class Game {
   }
 
   /**
-  ** Function    : Get the current game board array
-  ** @Args       : None
-  ** @Returns    : Array
-  */
+   * @desc Get the current board array
+   * @returns {array} Board array
+   */
   getBoard() {
     return this.board;
   }
 
   /**
-  ** Function    : Set the board object to a new array
-  ** @args       : Array
-  ** @returns    : None
-  */
+   * @desc Set game board array
+   * @param {array} 
+   */
   setBoard(boardArray) {
     this.board = boardArray;
   }
