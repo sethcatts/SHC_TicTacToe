@@ -6,13 +6,7 @@ class Player {
      * @param {char} piece - (x or o) 
      * @param {string} color - color
      */
-    constructor(name, piece, color) {
-        var name;
-        var piece;
-        var pieceImagePath;
-        var playerColor
-        var themes;
-        var themeKey;
+    constructor(name, piece) {
         this.themes = {
             "dark": "theme-dark/",
             "light": "theme-light/",
@@ -20,12 +14,9 @@ class Player {
             "green_orange": "theme_green-orange/",
             "yellow_purple": "theme_yellow-purple/"
         }
-        this.themeKey       = "dark";
-        this.playerColor    = color;
         this.name           = name;
         this.piece          = piece;
         this.set            = this.themes.dark;
-        this.pieceImagePath = "images/";
     }
 
     /**
@@ -49,28 +40,30 @@ class Player {
      * @returns {string} piece image path
      */
     getPieceImage() {
-        let p = Math.floor(Math.random() * 3) + 1;
-        return "" + this.pieceImagePath + this.set + this.piece + "_1.png"; 
+        return "images/" + this.set + this.piece + "_1.png"; 
     }
 
     /**
-     * @desc Get the color of the player from the object property
-     * @returns {string} Player color
+     * @desc Get active theme key for this player
+     * @returns {string} theme key
      */
-    getColor() {
-        return this.playerColor;
-    }
-
     getSet() {
         return this.themeKey;
     }
     
+    /**
+     * @desc Set player name
+     * @param {string} name - Player name 
+     */
     setName(name) {
         this.name = name;
     }
 
+    /**
+     * @desc Set piece theme for this player
+     * @param {string} theme - theme key 
+     */
     setSet(theme) {
-        this.themeKey = theme;
         this.set = this.themes[theme];
     }
 }
