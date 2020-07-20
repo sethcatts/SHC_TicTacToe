@@ -41,28 +41,27 @@ class Game {
 
   /**
    * @desc Set game board array
-   * @param {array} 
+   * @param {array} boardArray - The desired board
    */
   setBoard(boardArray) {
     this.board = boardArray;
   }
 
-  /*
-  ** Function    : Print current state of game board to the console
-  ** @Args       : None
-  ** @Returns    : None
-  */
+  /**
+   * @desc Print the board as it currently looks
+   */
   printBoard() {
     for (let i = 0; i < this.board[0].length; i++) {
       console.log(this.board[i][0] + " " + this.board[i][1] + " " + this.board[i][2]);
     }
   }
 
-  /*
-  ** Function    : Place piece on game board
-  ** @Args       : Piece, x-coord, y-coord
-  ** @Returns    : Boolean
-  */
+  /**
+   * @desc Place a piece in the game board array
+   * @param {int} x - Board x pos
+   * @param {int} y - Board y pos
+   * @param {player} p - Player placing this piece
+   */
   placePiece(x, y, p = this.currentPlayer) {
     if(this.legalMove(x, y) && !this.gameOver) {
       this.board[x][y] = p.getPiece();
@@ -77,11 +76,9 @@ class Game {
     }
   }
 
-  /*
-  ** Function    : Rotate the current moving player according to the game
-  ** @Args       : None
-  ** @Returns    : Current player according to the game class
-  */
+  /**
+   * @desc Switch the current moving player
+   */
   switchMovingPlayer() {
     if(this.currentPlayer == this.player_1) {
       this.currentPlayer = this.player_2;
@@ -93,38 +90,45 @@ class Game {
     return this.currentPlayer;
   }
 
-  /*
-  ** Function     : Set players 1 & 2 piece types(images)
-  ** @Args        : Theme key (String)
-  ** @Returns     : None
-  */
+  /**
+   * @desc Switch the theme for both player objects 
+   * @param {string} theme - New theme
+   */
   setPlayersPieceTheme(theme) {
     this.player_1.setSet(theme);
     this.player_2.setSet(theme);
   }
 
-  /*
-  ** Function     : Set player names
-  ** @args        : player{int}, name{string}
-  ** @returns     : none
-  */
+  /**
+   * @desc Set the name of one of the players
+   * @param {int} player - 1 or 2 
+   * @param {string} name - Selected player's new name
+   */
   setPlayerName(player, name) {
     if(player == 1) {
       this.player_1.setPlayerName(name);
     } else if(player == 2) {
       this.player_2.setPlayerName(name);
+    } else {
+      console.log("Invalid player selected for name change");
     }
   }
 
+
+  /**
+   * @desc Get the current theme
+   * @returns {string} theme
+   */
   getCurrentTheme() {
     return this.currentPlayer.getSet();
   }
 
-  /*
-  ** Function     : Check if a piece can be placed at the coordinate
-  ** @Args        : [x,y] board coordinates 
-  ** @Returns     : Boolean  
-  */
+  /**
+   * @desc Verify if a move is legal at the board position provided
+   * @param {int} x - Board x pos
+   * @param {int} y - Board y pos
+   * @returns {boolean} 
+   */
   legalMove(x, y) {
     if(x <= this.board.length && y <= this.board[0].length) {
 	    return this.board[x][y] === this.blank;
