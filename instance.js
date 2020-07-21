@@ -16,7 +16,7 @@ function fillCell(i, imgPath) {
 
 /**
  * @desc Perform a (game) move
- * @param {array} i - Board Index
+ * @param {array} i - Board Indexes
  */
 function selectCell(i) {
     game_instance.placePiece(i[0], i[1]);
