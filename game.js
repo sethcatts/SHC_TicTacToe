@@ -127,7 +127,7 @@ class Game {
    * @desc Verify if a move is legal at the board position provided
    * @param {int} x - Board x pos
    * @param {int} y - Board y pos
-   * @returns {boolean} 
+   * @returns {boolean} Move legality
    */
   legalMove(x, y) {
     if(x <= this.board.length && y <= this.board[0].length) {
@@ -137,11 +137,10 @@ class Game {
     }
   }
   
-  /*
-  ** Function     : Check if all game board cells are used
-  ** @Args        : None 
-  ** @Returns     : Boolean 
-  */
+  /**
+   * @desc Check if the game board is full of player pieces
+   * @returns {boolean}
+   */
   boardFull() {
 	  var full = true;
 	  for (let i = 0; i < 3; i++) {
@@ -154,21 +153,20 @@ class Game {
     return full;
   }
 
-  /*
-  ** Function     : Check if a cell is empty
-  **
-  ** @args        : Board coords
-  ** @Returns     : Boolean
-  */
-  emptyCell(x,y) {
+  /**
+   * @desc Check if the specified cell on the game board is empty
+   * @param {int} x - Board x pos
+   * @param {int} y - Board y pos   
+   * @returns {boolean} 
+   */
+  emptyCell(x, y) {
     return this.board[x][y] == this.blank;
   }
 
-	/*
-  ** Function     : Check if the board is full and nobody has won
-  ** @Args        : None 
-  ** @Returns     : Boolean value
-  */
+	/**
+   * @desc Check if the current game board is in a tie state
+   * @returns {boolean}
+   */
   checkForTie() {
 	  if(this.boardFull() && !this.gameOver) {
 		  return true;
@@ -177,22 +175,18 @@ class Game {
 	  }
   }
 
-  /*
-  ** Function     : Check the board for a winning 
-  **                position and return a win object
-  ** @Args        : None
-  ** @Returns     : Boolean
-  **
-  ** NOTE: I'm going to write this the stupid way so that testing can
-  **       continue but it should be refactored later using for-loops
-  */
+  /**
+   * @desc Check the current game board for a winning state
+   * @returns {boolean}
+   */
   checkForWin() {
-    /*
-    ** Helper     : True if all 3 arguments match
-    **
-    ** @Args      : 3 [Strings](cell values)
-    ** @Returns   : Boolean
-    */
+    /**
+     * @desc Helper - check if all params are equal
+     * @param {string} f - 1
+     * @param {string} s - 2
+     * @param {string} t - 3
+     * @returns {boolean}
+     */
     function c(f,s,t) {
       return (f == s && f == t);
     }
