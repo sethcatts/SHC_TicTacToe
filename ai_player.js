@@ -5,9 +5,8 @@
  * @class AI Player
  */
 class AI_Player extends Player {
-
     /**
-     * @constructor - ai player class
+     * @constructor AI Player
      * @param {string} name 
      * @param {*} piece 
      * @param {*} color 
