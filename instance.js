@@ -21,6 +21,7 @@ function fillCell(i, imgPath) {
 function selectCell(i) {
     fillCell(i, game_instance.currentPlayer.getPieceImage());
     game_instance.placePiece(i[0], i[1]);
+    checkGameStatus();
 }
 
 
