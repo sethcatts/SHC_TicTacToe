@@ -19,8 +19,8 @@ function fillCell(i, imgPath) {
  * @param {array} i - Board Indexes
  */
 function selectCell(i) {
+    fillCell(i, game_instance.currentPlayer.getPieceImage());
     game_instance.placePiece(i[0], i[1]);
-    fillCell(i[0], i[1]);
 }
 
 
