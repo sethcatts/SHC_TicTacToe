@@ -63,15 +63,14 @@ class Game {
    * @desc Place a piece in the game board array
    * @param {int} x - Board x pos
    * @param {int} y - Board y pos
-   * @param {player} p - Player placing this piece
    */
-  placePiece(x, y, p = this.currentPlayer) {
+  placePiece(x, y) {
     if(this.legalMove(x, y) && !this.gameOver) {
-      this.board[x][y] = p.getPiece();
-      this.switchMovingPlayer();
+      this.board[x][y] = this.currentPlayer.getPiece();
       this.printBoard();
       this.checkForWin();
       this.checkForTie();
+      this.switchMovingPlayer();
       return true;
     } else {
       console.error("GAME CLASS ERROR: Attempted illegal move");
