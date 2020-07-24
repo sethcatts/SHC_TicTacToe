@@ -63,6 +63,7 @@ class Game {
    * @desc Place a piece in the game board array
    * @param {int} x - Board x pos
    * @param {int} y - Board y pos
+   * @returns {boolean} Legality of move
    */
   placePiece(x, y) {
     if(this.legalMove(x, y) && !this.gameOver) {
@@ -70,7 +71,9 @@ class Game {
       this.printBoard();
       this.checkForWin();
       this.checkForTie();
-      this.switchMovingPlayer();
+      if(!this.gameOver) {
+        this.switchMovingPlayer();
+      }
       return true;
     } else {
       console.error("GAME CLASS ERROR: Attempted illegal move");
