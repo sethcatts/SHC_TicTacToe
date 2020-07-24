@@ -1,5 +1,5 @@
-# A simple tic-tac-toe game
---=-=-=
+#Tic Tac Toe
+##### The game of tic tac toe
 ## Features
 ### The Game
 The ability to play the game of TicTacToe
