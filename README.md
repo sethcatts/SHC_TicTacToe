@@ -1,4 +1,4 @@
-#Tic Tac Toe
+# Tic Tac Toe
 ##### The game of tic tac toe
 ## Features
 ### The Game
