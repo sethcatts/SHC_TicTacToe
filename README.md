@@ -1,5 +1,6 @@
 # Tic Tac Toe
 ##### The game of tic tac toe
+Made using HTML, CSS, and vanilla Javascript.
 ## Features
 ### The Game
 The ability to play the game of TicTacToe
