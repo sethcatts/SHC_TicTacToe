@@ -22,6 +22,30 @@ class AI_Player extends Player {
     }
 
     /**
+     * @desc Get best single move
+     * @param {array} board 
+     */
+    findBestMove(board) {
+        var bestVal = -Infinity;
+        var bestMove = [-1,-1];
+        for(let i = 0; i < 3; i++) {
+            for(let j = 0; j < 3; j++) {
+                if(board[i][j] == this.blank) {
+                    board[i][j] = this.piece;
+                    let moveVal = this.minimax(board, 0, false);
+                    board[i][j] = this.blank;
+                    if(moveVal > bestVal) {
+                        bestVal = moveVal;
+                        bestMove = [i, j];
+                    }
+                }
+            }
+        }
+        console.log("Best Move: " + bestMove[0] + ", " + bestMove[1]);
+        return bestMove;
+    }
+
+    /**
      * @desc check for a win
      * @param {array} board 
      */
@@ -115,30 +139,6 @@ class AI_Player extends Player {
             }
             return best;
         }
-    }
-
-    /**
-     * @desc Get best single move
-     * @param {array} board 
-     */
-    findBestMove(board) {
-        var bestVal = -Infinity;
-        var bestMove = [-1,-1];
-        for(let i = 0; i < 3; i++) {
-            for(let j = 0; j < 3; j++) {
-                if(board[i][j] == this.blank) {
-                    board[i][j] = this.piece;
-                    let moveVal = this.minimax(board, 0, false);
-                    board[i][j] = this.blank;
-                    if(moveVal > bestVal) {
-                        bestVal = moveVal;
-                        bestMove = [i, j];
-                    }
-                }
-            }
-        }
-        console.log("Best Move: " + bestMove[0] + ", " + bestMove[1]);
-        return bestMove;
     }
 
     /**
