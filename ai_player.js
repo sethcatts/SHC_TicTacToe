@@ -14,8 +14,6 @@ class AI_Player extends Player {
      */
     constructor(name, piece, color, difficulty) {
         super(name, piece, color);
-        var enemyPiece;
-        var blank;
         this.blank = "[ ]";
         this.enemyPiece = "o";
         this.difficulty = difficulty;
