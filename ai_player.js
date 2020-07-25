@@ -12,9 +12,9 @@ class AI_Player extends Player {
      * @param {*} color 
      * @param {*} difficulty 
      */
-    constructor(name, piece, color, difficulty) {
+    constructor(name, piece, color, difficulty, blank) {
         super(name, piece, color);
-        this.blank = "[ ]";
+        this.blank = blank;
         this.enemyPiece = "o";
         this.difficulty = difficulty;
     }
