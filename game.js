@@ -147,7 +147,7 @@ class Game {
    * @returns {boolean}
    */
   boardFull() {
-    //REFACTOR: Could just make this loop 3 times and call .contains with this.emptycell arg
+    //REFACTOR: Could just make this loop 3 times and call a .contains with this.emptycell arg
 	  var full = true;
 	  for (let i = 0; i < 3; i++) {
       for (let j = 0; j < 3; j++) {      
