@@ -1,9 +1,11 @@
 //Create game object instance
 var game_instance = new Game();
+var ai = new AI_Player("AI", "x", "black", 3, "[ ]");
+game_instance.player_2 = ai;
+game_instance.waitingPlayer = ai;
 
-/* ======================================================================== *
- * ============================ AI TESTING ================================ *
- * ======================================================================== *
+/* ============================ AI TESTING ================================ *
+ * ======================================================================== */
 var board1 = [["x","[ ]","o"],
               ["[ ]","x","[ ]"],
               ["o","[ ]","[ ]"]];
@@ -14,17 +16,9 @@ var board3 = [["[ ]","[ ]","x"],
               ["[ ]","[ ]","[ ]"],
               ["[ ]","[ ]","x"]];
 
-var ai = new AI_Player("AI", "x", "black", 3, "[ ]");
-
-console.log("Best move for board 1 is: " + ai.findBestMove(board1) + " | Should be: [2,2]");
-console.log("Best move for board 2 is: " + ai.findBestMove(board2) + " | Should be: [1,1]");
-console.log("Best move for board 3 is: " + ai.findBestMove(board3) + " | Should be: [?,?]");
-
-
-
-
-
-
+console.log("Best move for board 1 is: " + ai.getBestMove(board1) + " | Should be: [2,2]");
+console.log("Best move for board 2 is: " + ai.getBestMove(board2) + " | Should be: [1,1]");
+console.log("Best move for board 3 is: " + ai.getBestMove(board3) + " | Should be: [?,?]");
 
 /* ======================================================================== *
  * ======================================================================== *
@@ -50,6 +44,14 @@ function fillCell(i, imgPath) {
 function selectCell(i) {
     fillCell(i, game_instance.currentPlayer.getPieceImage());
     game_instance.placePiece(i[0], i[1]);
+    checkGameStatus();
+
+    //Where should this bool go? (and game not over)
+    if(true /*fix*/) {
+        var move = ai.getBestMove(game_instance.getBoard());
+        fillCell(move, game_instance.currentPlayer.getPieceImage());
+        game_instance.placePiece(move[0], move[1]);
+    }
     checkGameStatus();
 }
 

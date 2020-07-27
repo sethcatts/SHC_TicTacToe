@@ -11,8 +11,8 @@ class Game {
     this.blank 		      = "[ ]";
     this.board 		      = this.createBoard();
     this.gameOver       = false;
-    this.player_1       = new Player("Player One (X)", "x");
-    this.player_2       = new Player("Player Two (O)", "o");
+    this.player_1       = new Player("Player One (X)", "o");
+    this.player_2       = new Player("Player Two (O)", "x");
     this.currentPlayer  = this.player_1;
     this.waitingPlayer  = this.player_2;
   }
@@ -54,6 +54,7 @@ class Game {
    * @desc Print the board as it currently looks
    */
   printBoard() {
+    console.clear();
     for (let i = 0; i < this.board[0].length; i++) {
       console.log(this.board[i][0] + " " + this.board[i][1] + " " + this.board[i][2]);
     }
