@@ -39,7 +39,7 @@ class AI_Player extends Player {
                 }
             }
         }
-        console.log("Best Move: " + bestMove[0] + ", " + bestMove[1]);
+        //console.log("Best Move: " + bestMove[0] + ", " + bestMove[1]);
         return bestMove;
     }
 
