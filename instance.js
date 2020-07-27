@@ -3,23 +3,22 @@ var game_instance = new Game();
 
 /* ======================================================================== *
  * ============================ AI TESTING ================================ *
- * ======================================================================== */
-var board1 = [["[ ]","[ ]","[ ]"],
+ * ======================================================================== *
+var board1 = [["x","[ ]","o"],
+              ["[ ]","x","[ ]"],
+              ["o","[ ]","[ ]"]];
+var board2 = [["[ ]","o","x"],
+              ["x","[ ]","[ ]"],
+              ["[ ]","o","[ ]"]];
+var board3 = [["[ ]","[ ]","x"],
               ["[ ]","[ ]","[ ]"],
-              ["[ ]","[ ]","[ ]"]];
-var board2 = [["[ ]","[ ]","[ ]"],
-              ["[ ]","[ ]","[ ]"],
-              ["[ ]","[ ]","[ ]"]];
-var board1 = [["[ ]","[ ]","[ ]"],
-              ["[ ]","[ ]","[ ]"],
-              ["[ ]","[ ]","[ ]"]];
+              ["[ ]","[ ]","x"]];
 
 var ai = new AI_Player("AI", "x", "black", 3, "[ ]");
 
-console.log(game_instance.print)
-console.log("Best move for board 1 is: " + ai.findBestMove(board1));
-console.log("Best move for board 2 is: " + ai.findBestMove(board2));
-console.log("Best move for board 3 is: " + ai.findBestMove(board3));
+console.log("Best move for board 1 is: " + ai.findBestMove(board1) + " | Should be: [2,2]");
+console.log("Best move for board 2 is: " + ai.findBestMove(board2) + " | Should be: [1,1]");
+console.log("Best move for board 3 is: " + ai.findBestMove(board3) + " | Should be: [?,?]");
 
 
 
