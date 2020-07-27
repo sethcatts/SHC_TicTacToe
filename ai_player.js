@@ -23,7 +23,7 @@ class AI_Player extends Player {
      * @desc Get best single move
      * @param {array} board 
      */
-    findBestMove(board) {
+    getBestMove(board) {
         var bestVal = -Infinity;
         var bestMove = [-1,-1];
         for(let i = 0; i < 3; i++) {
