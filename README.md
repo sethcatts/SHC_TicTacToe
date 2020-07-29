@@ -8,7 +8,7 @@ The ability to play the game of TicTacToe
 Change the theme of the board and pieces
 #### Themes Available
 Dark
-![dark](/images/dark.png)
+![dark](/images/theme-dark/o_1.png)
 Light, Bold, Garden, Magic
 ### AI apponent  
 Play against an AI opponent that uses the minimax algorithm to find moves
