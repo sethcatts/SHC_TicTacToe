@@ -27,5 +27,5 @@ Magic
 
 <img src="/images/theme_yellow-purple/o_1.png" width="5%"><img src="/images/theme_yellow-purple/x_1.png" width="5%">
 ### AI apponent  
-Play against an AI opponent that uses the minimax algorithm to find moves
+The AI apponent calculates the best move using the minimax algorithm
 
