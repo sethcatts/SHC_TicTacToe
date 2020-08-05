@@ -1,4 +1,5 @@
 # Tic Tac Toe
+This project is not finished.
 ##### The game of tic tac toe
 Made using HTML, CSS, and vanilla Javascript.
 ## Features
