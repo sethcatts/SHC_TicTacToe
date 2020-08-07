@@ -1,10 +1,10 @@
 # Tic Tac Toe
-This project is not finished. This project code has not been refactored, improvements to algorithms/structure will be made once the game is fully functional.
+This project is not finished. This project code has not been refactored, improvements to algorithms/structure will be made once the game is fully functional. 
 ##### The game of tic tac toe
 Made using HTML, CSS, and vanilla Javascript.
 ## Features
 ### The Game
-The ability to play the game of TicTacToe
+The ability to play the game of TicTacToe...
 ### Themes
 Change the theme of the board and pieces
 #### Themes Available
