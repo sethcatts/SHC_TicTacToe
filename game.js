@@ -148,6 +148,15 @@ class Game {
    * @returns {boolean}
    */
   boardFull() {
+    var boardFull = true;
+    for(var i = 0; i < 3; i++) {
+      if(this.board[i].contains(this.blank)) {
+        boardFull = false;
+      }
+    }
+  }
+  /*
+  boardFull() {
     //REFACTOR: Could just make this loop 3 times and call a .contains with this.emptycell arg
 	  var full = true;
 	  for (let i = 0; i < 3; i++) {
@@ -159,7 +168,8 @@ class Game {
     }
     return full;
   }
-
+  */
+ 
   /**
    * @desc Check if the specified cell on the game board is empty
    * @param {int} x - Board x pos
