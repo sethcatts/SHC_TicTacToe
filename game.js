@@ -83,6 +83,15 @@ class Game {
   }
 
   /**
+   * @desc Set the player object for player 1 or two
+   * @param {player} player Player to be added to game object
+   * @param {int} num Player object to replace with the new player
+   */
+  setPlayer(player, num) {
+    //if player piece does not match...
+  }
+
+  /**
    * @desc Switch the current moving player
    */
   switchMovingPlayer() {
@@ -169,7 +178,7 @@ class Game {
     return full;
   }
   */
- 
+
   /**
    * @desc Check if the specified cell on the game board is empty
    * @param {int} x - Board x pos
