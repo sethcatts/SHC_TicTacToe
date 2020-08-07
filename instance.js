@@ -47,12 +47,13 @@ function selectCell(i) {
     checkGameStatus();
 
     //Where should this bool go? (and game not over)
-    if(true /*fix*/) {
+    if(!game_instance.gameOver) {
         var move = ai.getBestMove(game_instance.getBoard());
         fillCell(move, game_instance.currentPlayer.getPieceImage());
         game_instance.placePiece(move[0], move[1]);
+        checkGameStatus();
     }
-    checkGameStatus();
+    
 }
 
 
