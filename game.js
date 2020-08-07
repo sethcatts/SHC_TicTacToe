@@ -83,7 +83,7 @@ class Game {
   }
 
   /**
-   * @desc Set the player object for player 1 or two
+   * @desc Set the player object for player 1 or 2
    * @param {player} player Player to be added to game object
    * @param {int} num Player object to replace with the new player
    */
