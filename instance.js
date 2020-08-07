@@ -52,8 +52,7 @@ function selectCell(i) {
         fillCell(move, game_instance.currentPlayer.getPieceImage());
         game_instance.placePiece(move[0], move[1]);
         checkGameStatus();
-    }
-    
+    }   
 }
 
 
@@ -79,7 +78,6 @@ function checkGameStatus() {
  * @desc Create a new game
  */
 function newGame() {
-    console.log("called newGame function")
     var currentTheme = game_instance.getCurrentTheme();
     game_instance = new Game();
     game_instance.setPlayersPieceTheme(currentTheme);
@@ -91,8 +89,7 @@ function newGame() {
  * @desc Clear game board (visual)
  */
 function clearBoard() {
-    console.log("called clearBoard function")
-    let elems_cell = document.getElementsByClassName("selected_cell");
+    var elems_cell = document.getElementsByClassName("selectedCell");
     while(elems_cell.length > 0) {
         elems_cell[0].parentNode.removeChild(elems_cell[0]);
     }
