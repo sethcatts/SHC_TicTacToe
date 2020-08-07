@@ -18,7 +18,7 @@ class Game {
   }
 
   /**
-   * @desc Create a board of size n^2
+   * @desc Create the game board using the specified blank tile
    * @returns {array} Array representing the current game board
    */
   createBoard() {
