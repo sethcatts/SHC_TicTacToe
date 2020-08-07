@@ -1,5 +1,5 @@
 # Tic Tac Toe
-This project is not finished. XD
+This project is not finished. Code has not been refactored
 ##### The game of tic tac toe
 Made using HTML, CSS, and vanilla Javascript.
 ## Features
