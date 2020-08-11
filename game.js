@@ -89,10 +89,14 @@ class Game {
    */
   setPlayer(player, num) {
     //if player piece does not match...
+    //We probably wanna always replace the second moving player to keep things simple
+    //Or maybe switch to the human player after this 'activation' of the AI?
+
   }
 
   /**
    * @desc Switch the current moving player
+   * @returns {player} Current player
    */
   switchMovingPlayer() {
     if(this.currentPlayer == this.player_1) {
