@@ -8,11 +8,11 @@ class Game {
    * @implements {player} Player
    */
   constructor() {
-    this.blank 		      = "[ ]";
+    this.blank 		      = "-";
     this.board 		      = this.createBoard();
     this.gameOver       = false;
-    this.player_1       = new Player("Player One (X)", "o");
-    this.player_2       = new Player("Player Two (O)", "x");
+    this.player_1       = new Player("Player One (O)", "o");
+    this.player_2       = new Player("Player Two (X)", "x");
     this.currentPlayer  = this.player_1;
     this.waitingPlayer  = this.player_2;
   }
@@ -91,7 +91,9 @@ class Game {
     //if player piece does not match...
     //We probably wanna always replace the second moving player to keep things simple
     //Or maybe switch to the human player after this 'activation' of the AI?
-
+    //CURRENTLY -> First mover is 'o', A.I. should always be assigned 'x'
+    this.player_2 = player;
+    this.waitingPlayer = this.player_2;
   }
 
   /**
@@ -163,7 +165,7 @@ class Game {
   boardFull() {
     var boardFull = true;
     for(var i = 0; i < 3; i++) {
-      if(this.board[i].contains(this.blank)) {
+      if(this.board[i].includes(this.blank)) {
         boardFull = false;
       }
     }
