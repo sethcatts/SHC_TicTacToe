@@ -4,6 +4,13 @@ var ai = new AI_Player("AI", "x", "black", 3, "-");
 game_instance.setPlayer(ai, 2);
 
 /* ============================ AI TESTING ================================ *
+MEM: ► (9744), • (7), ○ (9), 
+    >> TODO <<
+    ► Check AI class methods
+        ○ getBestMove
+        • evaluate
+        ○ minmax
+        ○ isMovesLeft
  * ======================================================================== */
 //Best move boards
  var board1 = [["x","-","o"],
@@ -32,9 +39,9 @@ console.log("board eval: " + ai.evaluate(board_x));
 console.log("board eval: " + ai.evaluate(board_y));
 console.log("board eval: " + ai.evaluate(board_z));
 console.log("board eval: " + ai.evaluate(board_n));
-console.log("Best move for board 1 is: " + ai.getBestMove(board1) + " | Should be: [2,2]");
-console.log("Best move for board 2 is: " + ai.getBestMove(board2) + " | Should be: [1,1]");
-console.log("Best move for board 3 is: " + ai.getBestMove(board3) + " | Should be: [?,?]");
+console.log("Best move for board 1 is: " + ai.getBestMove(board1));
+console.log("Best move for board 2 is: " + ai.getBestMove(board2));
+console.log("Best move for board 3 is: " + ai.getBestMove(board3));
 /* ======================================================================== *
  * ======================================================================== *
  * ======================================================================== */
