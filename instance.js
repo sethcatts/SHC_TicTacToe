@@ -1,25 +1,40 @@
 //Create game object instance
 var game_instance = new Game();
-var ai = new AI_Player("AI", "x", "black", 3, "[ ]");
-game_instance.player_2 = ai;
-game_instance.waitingPlayer = ai;
+var ai = new AI_Player("AI", "x", "black", 3, "-");
+game_instance.setPlayer(ai, 2);
 
 /* ============================ AI TESTING ================================ *
  * ======================================================================== */
-var board1 = [["x","[ ]","o"],
-              ["[ ]","x","[ ]"],
-              ["o","[ ]","[ ]"]];
-var board2 = [["[ ]","o","x"],
-              ["x","[ ]","[ ]"],
-              ["[ ]","o","[ ]"]];
-var board3 = [["[ ]","[ ]","x"],
-              ["[ ]","[ ]","[ ]"],
-              ["[ ]","[ ]","x"]];
-
+//Best move boards
+ var board1 = [["x","-","o"],
+              ["-","-","x"],
+              ["o","-","-"]];
+var board2 = [["-","o","x"],
+              ["x","-","-"],
+              ["-","o","-"]];
+var board3 = [["o","x","x"],
+              ["-","-","o"],
+              ["o","-","x"]];
+//-- Eval boards
+var board_x = [["x","x","x"],
+              ["-","-","o"],
+              ["o","-","x"]];  
+var board_y = [["x","x","o"],
+              ["-","-","o"],
+              ["o","-","o"]]; 
+var board_z = [["x","o","x"],
+              ["o","-","x"],
+              ["o","-","x"]]; 
+var board_n = [["x","o","x"],
+              ["-","-","x"],
+              ["o","o","o"]];      
+console.log("board eval: " + ai.evaluate(board_x));
+console.log("board eval: " + ai.evaluate(board_y));
+console.log("board eval: " + ai.evaluate(board_z));
+console.log("board eval: " + ai.evaluate(board_n));
 console.log("Best move for board 1 is: " + ai.getBestMove(board1) + " | Should be: [2,2]");
 console.log("Best move for board 2 is: " + ai.getBestMove(board2) + " | Should be: [1,1]");
 console.log("Best move for board 3 is: " + ai.getBestMove(board3) + " | Should be: [?,?]");
-
 /* ======================================================================== *
  * ======================================================================== *
  * ======================================================================== */
@@ -82,6 +97,7 @@ function newGame() {
     game_instance = new Game();
     game_instance.setPlayersPieceTheme(currentTheme);
     clearBoard();
+    console.log("Starting player: " + game_instance.currentPlayer.piece);
 }
 
 //I find it very sus that this works, should probably refactor at some point
