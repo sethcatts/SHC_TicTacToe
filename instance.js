@@ -13,7 +13,7 @@ MEM: ► (9744), • (7), ○ (9),
         ○ isMovesLeft
  * ======================================================================== */
 //Best move boards
- var board1 = [["x","-","o"],
+var board1 = [["x","-","o"],
               ["-","-","x"],
               ["o","-","-"]];
 var board2 = [["-","o","x"],
@@ -22,7 +22,7 @@ var board2 = [["-","o","x"],
 var board3 = [["o","x","x"],
               ["-","-","o"],
               ["o","-","x"]];
-//-- Eval boards
+/*-- Eval boards
 var board_x = [["x","x","x"],
               ["-","-","o"],
               ["o","-","x"]];  
@@ -39,6 +39,7 @@ console.log("board eval: " + ai.evaluate(board_x));
 console.log("board eval: " + ai.evaluate(board_y));
 console.log("board eval: " + ai.evaluate(board_z));
 console.log("board eval: " + ai.evaluate(board_n));
+*/
 console.log("Best move for board 1 is: " + ai.getBestMove(board1));
 console.log("Best move for board 2 is: " + ai.getBestMove(board2));
 console.log("Best move for board 3 is: " + ai.getBestMove(board3));

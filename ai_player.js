@@ -118,7 +118,7 @@ class AI_Player extends Player {
                 for(var j = 0; j < 3; j++) {
                     if(board[i][j] == this.blank) {
                         board[i][j] = this.piece;
-                        best = Math.max(best, this.minimax(board, depth+=1, !max));
+                        best = Math.max(best, this.minimax(board, depth++, !max));
                         board[i][j] = this.blank;
                     }
                 }
