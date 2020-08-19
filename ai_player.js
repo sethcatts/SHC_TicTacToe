@@ -26,11 +26,12 @@ class AI_Player extends Player {
     getBestMove(board) {
         var bestVal = -Infinity;
         var bestMove = [-1,-1];
+        var moveVal = 0;
         for(let i = 0; i < 3; i++) {
             for(let j = 0; j < 3; j++) {
                 if(board[i][j] == this.blank) {
                     board[i][j] = this.piece;
-                    let moveVal = this.minimax(board, 0, false);
+                    moveVal = this.minimax(board, 0, false);
                     board[i][j] = this.blank;
                     if(moveVal > bestVal) {
                         bestVal = moveVal;
@@ -98,17 +99,20 @@ class AI_Player extends Player {
      * @param {int} max 
      */
     minimax(board, depth, max) {
-        console.log("got here 1")
+        //console.log("Depth: " + depth);
+        //console.log("got here 1")
         //Calculate initial score
         var score = this.evaluate(board);
         //console.log("Score: " + score + " - at depth: " + depth);
         //Game ending cases
         if(score == 10 || score == -10) {
+            //console.log("Score TRUE");
             return score;
         }
-        console.log("got here 1.5");
+        //console.log("got here 1.5");
         //If there are no moves left
         if(!this.isMovesLeft(board)) {
+            //console.log("nomovesleft TRUE");
             return 0;
         }
 
@@ -147,15 +151,14 @@ class AI_Player extends Player {
      * @param {array} board 
      */
     isMovesLeft(board) {
-        var full = true;
 	    for (let i = 0; i < 3; i++) {
              for (let j = 0; j < 3; j++) {      
                 if(board[i][j] == this.blank) {
-                    full = false;
+                    return true;
                 }
             }
         }
-        return full;
+        return false;
     }
 }
 

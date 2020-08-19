@@ -35,10 +35,10 @@ var board_z = [["x","o","x"],
 var board_n = [["x","o","x"],
               ["-","-","x"],
               ["o","o","o"]];      
-*/
 console.log("board eval: " + ai.evaluate(board1));
 console.log("board eval: " + ai.evaluate(board2));
 console.log("board eval: " + ai.evaluate(board3));
+*/
 console.log("Best move for board 1 is: " + ai.getBestMove(board1));
 console.log("Best move for board 2 is: " + ai.getBestMove(board2));
 console.log("Best move for board 3 is: " + ai.getBestMove(board3));
