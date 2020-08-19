@@ -115,6 +115,8 @@ img {
   margin-left: -400px;
   top: 50%;
   margin-top: -250px;
+  /*This will need to match styles?*/
+  color: black;
 }
 
 #close_popup_div {
