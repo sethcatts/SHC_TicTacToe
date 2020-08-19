@@ -103,7 +103,7 @@ class AI_Player extends Player {
         //console.log("got here 1")
         //Calculate initial score
         var score = this.evaluate(board);
-        //console.log("Score: " + score + " - at depth: " + depth);
+        console.log("Score: " + score + " - at depth: " + depth);
         //Game ending cases
         if(score == 10 || score == -10) {
             console.log("Score TRUE");
@@ -118,7 +118,7 @@ class AI_Player extends Player {
 
 
         //------------------------------------------------------------------------------------!!!
-        console.log("Got here 2");
+        //console.log("Got here 2");
         if(max) {
             var best = -1000;
             for(var i = 0; i < 3; i++) {
