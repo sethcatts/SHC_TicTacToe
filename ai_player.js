@@ -106,13 +106,13 @@ class AI_Player extends Player {
         //console.log("Score: " + score + " - at depth: " + depth);
         //Game ending cases
         if(score == 10 || score == -10) {
-            //console.log("Score TRUE");
+            console.log("Score TRUE");
             return score;
         }
         //console.log("got here 1.5");
         //If there are no moves left
         if(!this.isMovesLeft(board)) {
-            //console.log("nomovesleft TRUE");
+            console.log("nomovesleft TRUE");
             return 0;
         }
 
