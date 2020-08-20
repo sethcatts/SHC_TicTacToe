@@ -2,3 +2,4 @@ node_modules
 .vscode/settings.json
 /out
 dependancy chart.class.violet.html
+ai_test.js
