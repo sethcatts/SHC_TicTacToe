@@ -26,17 +26,28 @@ class AI_Player extends Player {
     getBestMove(board) {
         var bestVal = -1000;
         var bestMove = [-1,-1];
+
+        //Loop over all empty values of the board
         for(let i = 0; i < 3; i++) {
             for(let j = 0; j < 3; j++) {
                 if(board[i][j] == this.blank) {
+
+                    //Place move
                     board[i][j] = this.piece;
                     console.log("Evaluating new move");
+
+                    //Get the likelyhood of a win based on this move (as a number)
                     var moveVal = this.minimax(board, 0, false);
+
+                    //Undo the piece placement
                     board[i][j] = this.blank;
+
+                    //If the new move that was found is the best move found so far
+                    //set the optimal move to the new move;
                     if(moveVal >= bestVal) {
                         console.log("found new best move");
                         bestVal = moveVal;
-                        bestMove = [i, j];
+                        bestMove = new Array(i, j);
                     }
                 }
             }

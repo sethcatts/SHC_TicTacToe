@@ -8,6 +8,10 @@ MEM: ► (9744), • (7), ○ (9),
         ○ evaluate
         ○ minmax
         ○ isMovesLeft
+
+        TODO:   the algo is never getting a better score than the ones that 
+                it initially gets. see line 47 for the reason that it's now 
+                always returning the last move.
  * ======================================================================== */
 //Best move boards
 var board1 = [["-","-","-"],
