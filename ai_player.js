@@ -24,17 +24,17 @@ class AI_Player extends Player {
      * @param {array} board 
      */
     getBestMove(board) {
-        var bestVal = null;
+        var bestVal = -1000;
         var bestMove = [-1,-1];
-        var moveVal = null;
         for(let i = 0; i < 3; i++) {
             for(let j = 0; j < 3; j++) {
                 if(board[i][j] == this.blank) {
                     board[i][j] = this.piece;
                     console.log("Evaluating new move");
-                    moveVal = this.minimax(board, 0, false);
+                    var moveVal = this.minimax(board, 0, false);
                     board[i][j] = this.blank;
-                    if(moveVal > bestVal) {
+                    if(moveVal >= bestVal) {
+                        console.log("found new best move");
                         bestVal = moveVal;
                         bestMove = [i, j];
                     }
