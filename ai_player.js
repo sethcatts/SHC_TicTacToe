@@ -24,13 +24,14 @@ class AI_Player extends Player {
      * @param {array} board 
      */
     getBestMove(board) {
-        var bestVal = -1000;
+        var bestVal = null;
         var bestMove = [-1,-1];
-        var moveVal = 0;
+        var moveVal = null;
         for(let i = 0; i < 3; i++) {
             for(let j = 0; j < 3; j++) {
                 if(board[i][j] == this.blank) {
                     board[i][j] = this.piece;
+                    console.log("Evaluating new move");
                     moveVal = this.minimax(board, 0, false);
                     board[i][j] = this.blank;
                     if(moveVal > bestVal) {
@@ -47,6 +48,7 @@ class AI_Player extends Player {
     /**
      * @desc check for a win
      * @param {array} board 
+     * @returns {int} board score based on who, if anyone, won the game
      */
     evaluate(board) {
         //Check Rows
@@ -119,13 +121,16 @@ class AI_Player extends Player {
 
         //------------------------------------------------------------------------------------!!!
         //console.log("Got here 2");
+        console.log("depth: " + depth);
         if(max) {
             var best = -1000;
             for(var i = 0; i < 3; i++) {
                 for(var j = 0; j < 3; j++) {
                     if(board[i][j] == this.blank) {
+                        //console.log("Eval true 1  - depth: " + depth);
                         board[i][j] = this.piece;
-                        best = Math.max(best, this.minimax(board, depth+1, !max));
+                        depth += 1;
+                        best = Math.max(best, this.minimax(board, depth, !max));
                         board[i][j] = this.blank;
                     }
                 }
@@ -136,8 +141,10 @@ class AI_Player extends Player {
             for(var i = 0; i < 3; i++) {
                 for(var j = 0; j < 3; j++) {
                     if(board[i][j] == this.blank) {
+                        //console.log("Eval true 2 - depth: " + depth);
                         board[i][j] = this.piece;
-                        best = Math.min(best, this.minimax(board, depth+1, !max));
+                        depth += 1;
+                        best = Math.min(best, this.minimax(board, depth, !max));
                         board[i][j] = this.blank;
                     }
                 }
