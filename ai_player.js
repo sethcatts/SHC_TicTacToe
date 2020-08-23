@@ -34,7 +34,7 @@ class AI_Player extends Player {
 
                     //Place move
                     board[i][j] = this.piece;
-                    console.log("Evaluating new move");
+                    //console.log("Evaluating new first move");
 
                     //Get the likelyhood of a win based on this move (as a number)
                     var moveVal = this.minimax(board, 0, false);
@@ -44,8 +44,9 @@ class AI_Player extends Player {
 
                     //If the new move that was found is the best move found so far
                     //set the optimal move to the new move;
-                    if(moveVal >= bestVal) {
-                        console.log("found new best move");
+                    if(moveVal > bestVal) {
+                        console.log("found new best move of value: " + moveVal 
+                                    + " compared to " + bestVal);
                         bestVal = moveVal;
                         bestMove = new Array(i, j);
                     }
@@ -112,36 +113,24 @@ class AI_Player extends Player {
      * @param {int} max 
      */
     minimax(board, depth, max) {
-        //console.log("Depth: " + depth);
-        //console.log("got here 1")
-        //Calculate initial score
         var score = this.evaluate(board);
-        //console.log("Score: " + score + " - at depth: " + depth);
-        //Game ending cases
-        if(score == 10 || score == -10) {
-            //console.log("Score TRUE");
-            return score;
+        if(score == 10) {
+            return score - depth;
+        }else if(score == -10) {
+            return score + depth;
         }
-        //console.log("got here 1.5");
-        //If there are no moves left
+
         if(!this.isMovesLeft(board)) {
-            //console.log("nomovesleft TRUE");
             return 0;
         }
 
-
-        //------------------------------------------------------------------------------------!!!
-        //console.log("Got here 2");
-        console.log("depth: " + depth);
         if(max) {
             var best = -1000;
             for(var i = 0; i < 3; i++) {
                 for(var j = 0; j < 3; j++) {
                     if(board[i][j] == this.blank) {
-                        //console.log("Eval true 1  - depth: " + depth);
                         board[i][j] = this.piece;
-                        depth += 1;
-                        best = Math.max(best, this.minimax(board, depth, !max));
+                        best = Math.max(best, this.minimax(board, depth + 1, !max));
                         board[i][j] = this.blank;
                     }
                 }
@@ -152,10 +141,8 @@ class AI_Player extends Player {
             for(var i = 0; i < 3; i++) {
                 for(var j = 0; j < 3; j++) {
                     if(board[i][j] == this.blank) {
-                        //console.log("Eval true 2 - depth: " + depth);
                         board[i][j] = this.piece;
-                        depth += 1;
-                        best = Math.min(best, this.minimax(board, depth, !max));
+                        best = Math.min(best, this.minimax(board, depth + 1, !max));
                         board[i][j] = this.blank;
                     }
                 }

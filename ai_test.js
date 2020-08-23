@@ -5,24 +5,24 @@ MEM: ► (9744), • (7), ○ (9),
     >> TODO <<
     ► Check AI class methods
         • getBestMove
-        ○ evaluate
+        • evaluate
         ○ minmax
-        ○ isMovesLeft
+        • isMovesLeft
 
         TODO:   the algo is never getting a better score than the ones that 
                 it initially gets. see line 47 for the reason that it's now 
                 always returning the last move.
  * ======================================================================== */
 //Best move boards
-var board1 = [["-","-","-"],
+var board1 = [["o","o","x"],
               ["-","-","-"],
-              ["-","-","-"]];
-var board2 = [["-","o","x"],
-              ["x","-","-"],
+              ["o","x","x"]];
+var board2 = [["x","o","x"],
+              ["x","-","o"],
               ["-","o","-"]];
 var board3 = [["o","x","x"],
               ["-","-","o"],
-              ["o","-","x"]];
+              ["o","o","x"]];
 /*-- Eval boards
 var board_x = [["x","x","x"],
               ["-","-","o"],
