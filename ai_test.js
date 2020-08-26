@@ -1,5 +1,10 @@
 var ai = new AI_Player("AI", "x", "black", 3, "-");
-
+function dpboard(board) {
+    //console.log("New Board");
+    console.log(board[0][0] + " | " + board[0][1] + " | " + board[0][2]);
+    console.log(board[1][0] + " | " + board[1][1] + " | " + board[1][2]);
+    console.log(board[2][0] + " | " + board[2][1] + " | " + board[2][2]);
+}
 /* ============================ AI TESTING ================================ *
 MEM: ► (9744), • (7), ○ (9), 
     >> TODO <<
@@ -43,14 +48,15 @@ console.log("board eval: " + ai.evaluate(board3));
 //console.log("Best move for board 1 is: " + ai.getBestMove(board1));
 var b1bm = ai.getBestMove(board1);
 board1[b1bm[0]][b1bm[1]] = "P";
-console.log(board1);
-
+//console.log(board1);
+dpboard(board1);
 //console.log("Best move for board 2 is: " + ai.getBestMove(board2));
 var b2bm = ai.getBestMove(board2);
 board2[b2bm[0]][b2bm[1]] = "P";
-console.log(board2);
-
+//console.log(board2);
+dpboard(board2);
 //console.log("Best move for board 3 is: " + ai.getBestMove(board3));
 var b3bm = ai.getBestMove(board3);
 board3[b3bm[0]][b3bm[1]] = "P";
-console.log(board3);
+//console.log(board3);
+dpboard(board3);
