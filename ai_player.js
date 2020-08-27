@@ -44,9 +44,10 @@ class AI_Player extends Player {
 
                     //If the new move that was found is the best move found so far
                     //set the optimal move to the new move;
+                    //console.log("M: " + i + " " + j + "\nV: " + moveVal);
                     if(moveVal > bestVal) {
-                        console.log("found new best move of value: " + moveVal 
-                                    + " compared to " + bestVal);
+                        //console.log("found new best move of value: " + moveVal 
+                                    //+ " compared to " + bestVal);
                         bestVal = moveVal;
                         bestMove = new Array(i, j);
                     }
@@ -94,7 +95,7 @@ class AI_Player extends Player {
             }
         }
 
-        if(board[0][2] == board[1][1] && board[0][0] == board[2][0]) {
+        if(board[0][2] == board[1][1] && board[0][2] == board[2][0]) {
             if(board[0][2] == this.piece) {
                 return 10;
             } else if(board[0][2] == this.enemyPiece) {
@@ -115,6 +116,7 @@ class AI_Player extends Player {
     minimax(board, depth, max) {
         var score = this.evaluate(board);
         if(score == 10) {
+            //console.log(depth);
             return score - depth;
         }else if(score == -10) {
             return score + depth;
