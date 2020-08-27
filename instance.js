@@ -1,6 +1,7 @@
 //Create game object instance
 var game_instance = new Game();
-
+var ai = new AI_Player("AI", "x", "black", 3, "-");
+game_instance.setPlayer(ai, 0);
 /**
  * @desc Add piece to board
  * @param {array} i - Board index
