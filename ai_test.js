@@ -7,7 +7,7 @@ function dpboard(board) {
     console.log("-");
 }
 /* ============================ AI TESTING ================================ */
-//Best move boards
+/*Best move boards
 var board1 = [["o","o","x"],
               ["-","-","-"],
               ["o","x","x"]];
@@ -17,24 +17,27 @@ var board2 = [["x","o","x"],
 var board3 = [["o","x","x"],
               ["-","-","o"],
               ["o","o","x"]];
-/*-- Eval boards
-var board_x = [["x","x","x"],
-              ["-","o","o"],
-              ["o","-","x"]];  
-var board_y = [["x","x","o"],
-              ["x","-","o"],
-              ["o","-","o"]]; 
-var board_z = [["x","o","x"],
-              ["o","-","x"],
-              ["o","-","x"]]; 
-var board_n = [["x","o","x"],
-              ["-","-","x"],
-              ["o","o","o"]];      
-console.log("board eval: " + ai.evaluate(board_x));
-console.log("board eval: " + ai.evaluate(board_y));
-console.log("board eval: " + ai.evaluate(board_z));
-console.log("board eval: " + ai.evaluate(board_n));
 */
+//-- Eval boards
+var board_x = [["x","-","-"],
+               ["-","x","-"],
+               ["-","-","x"]]; 
+
+var board_y = [["-","-","-"],
+               ["-","-","-"],
+               ["x","x","x"]]; 
+
+var board_z = [["-","-","-"],
+               ["-","-","-"],
+               ["-","-","-"]]; 
+
+var board_n = [["-","-","-"],
+               ["-","-","-"],
+               ["-","-","-"]];      
+console.log(" 10 | board eval: " + ai.evaluate(board_x));
+//console.log(" 10 | board eval: " + ai.evaluate(board_y));
+//console.log(" xx | board eval: " + ai.evaluate(board_z));
+//console.log(" xx | board eval: " + ai.evaluate(board_n));
 //console.log("Eval: " + ai.evaluate(board1));
 
 //console.log("Best move for board 1 is: " + ai.getBestMove(board1));
