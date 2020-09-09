@@ -54,7 +54,7 @@ class Game {
    * @desc Print the board as it currently looks
    */
   printBoard() {
-    console.clear();
+    //console.clear();
     for (let i = 0; i < this.board[0].length; i++) {
       console.log(this.board[i][0] + " " + this.board[i][1] + " " + this.board[i][2]);
     }
