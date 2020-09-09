@@ -19,6 +19,21 @@ class AI_Player extends Player {
         this.difficulty = difficulty;
     }
 
+    preventableLossCheck(board) {
+        for (let i = 0; i < 3; i++) {
+            for (let j = 0; j < 3; j++) {      
+               if(board[i][j] == this.blank) {
+                   board[i][j] = this.enemyPiece;
+                   if(this.evaluate(board) == 10) {
+                       return {t:true, m:new Array (i, j)};
+                   }
+               }
+               board[i][j] = this.blank;
+           }
+       }
+       return {t:false, m:new Array (0, 0)};
+    }
+
     /**
      * @desc Get best single move
      * @param {array} board 
@@ -26,6 +41,13 @@ class AI_Player extends Player {
     getBestMove(board) {
         var bestVal = -1000;
         var bestMove = [-1,-1];
+
+        var p = this.preventableLossCheck(board)
+        if(p.t) {
+            bestMove = p.m;
+            bestval = 1000;
+        }
+
 
         //Loop over all empty values of the board
         for(let i = 0; i < 3; i++) {
@@ -46,8 +68,8 @@ class AI_Player extends Player {
                     //set the optimal move to the new move;
                     //console.log("M: " + i + " " + j + "\nV: " + moveVal);
                     if(moveVal > bestVal) {
-                        //console.log("found new best move of value: " + moveVal 
-                                    //+ " compared to " + bestVal);
+                        console.log("found new best move of value: " + moveVal 
+                                    + " compared to " + bestVal);
                         bestVal = moveVal;
                         bestMove = new Array(i, j);
                     }
@@ -115,8 +137,8 @@ class AI_Player extends Player {
      */
     minimax(board, depth, max) {
         var score = this.evaluate(board);
+
         if(score == 10) {
-            //console.log(depth);
             return score - depth;
         }else if(score == -10) {
             return score + depth;
