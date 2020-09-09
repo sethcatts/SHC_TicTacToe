@@ -9,8 +9,8 @@ function dpboard(board) {
 /* ============================ AI TESTING ================================ */
 //Best move boards
 var board1 = [["x","-","-"],
-              ["-","o","o"],
-              ["-","-","-"]];
+              ["-","o","-"],
+              ["-","o","-"]];
 /** 
 var board2 = [["x","o","x"],
               ["x","-","o"],
@@ -47,7 +47,7 @@ var board_n = [["-","-","-"],
 var b1bm = ai.getBestMove(board1);
 board1[b1bm[0]][b1bm[1]] = "+";
 //console.log(board1);
-dpboard(board1);
+//dpboard(board1);
 /*
 //console.log("Best move for board 2 is: " + ai.getBestMove(board2));
 var b2bm = ai.getBestMove(board2);
