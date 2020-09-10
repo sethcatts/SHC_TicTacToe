@@ -83,11 +83,20 @@ function changeTheme(theme) {
     game_instance.setPlayersPieceTheme(theme);
     var page = document.documentElement;
     var themes = {
-        "dark"          : ["black", "white", "white", "rgba(78, 78, 78, 0.5)", "white", "black", "none"],
-        "light"         : ["white", "black", "black", "rgba(78, 78, 78, 0.5)", "black", "white", "none"],
-        "blue_red"      : ["rgb(42,185,255)", "white", "white", "rgba(78, 78, 78, 0.5)", "black", "black", "linear-gradient(90deg, rgba(42,185,255,1) 0%, rgba(255,57,57,1) 100%)"],
-        "green_orange"  : ["rgb(255, 255, 255)", "black", "black", "rgba(78, 78, 78, 0.5)", "black", "linear-gradient(90deg, rgba(42,185,255,1) 0%, rgba(255,57,57,1) 100%)"],
-        "yellow_purple" : ["black", "black", "black", "rgba(78, 78, 78, 0.5)", "black", "white"],
+        "dark"          : ["black", "white", "white", "rgba(78, 78, 78, 0.5)", "white", "black", 
+                           "black"],
+
+        "light"         : ["white", "black", "black", "rgba(78, 78, 78, 0.5)", "black", "white", 
+                           "white"],
+
+        "blue_red"      : ["rgb(42,185,255)", "white", "white", "rgba(78, 78, 78, 0.5)", "black", "black", 
+                           "linear-gradient(90deg, rgba(42,185,255,1) 0%, rgba(255,57,57,1) 100%)"],
+
+        "green_orange"  : ["rgb(255, 255, 255)", "black", "black", "rgba(78, 78, 78, 0.5)", "black", "white", 
+                           "linear-gradient(90deg, rgba(184, 111, 59, 1) 0%, rgba(74, 148, 97, 1) 100%)"],
+
+        "yellow_purple" : ["black", "black", "black", "rgba(78, 78, 78, 0.5)", "black", "white",
+                           "linear-gradient(90deg, rgba(255, 183, 66, 1) 0%, rgba(160, 142, 230, 1) 100%)"]
     }
     page.style.setProperty("--background-color", themes[theme][0]);
     page.style.setProperty("--font-color", themes[theme][1]);
