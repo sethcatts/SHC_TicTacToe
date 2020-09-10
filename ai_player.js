@@ -1,6 +1,3 @@
-//https://www.geeksforgeeks.org/minimax-algorithm-in-game-theory-set-3-tic-tac-toe-ai-finding-optimal-move/
-
-
 /**
  * @class AI Player
  */
@@ -19,11 +16,14 @@ class AI_Player extends Player {
         this.difficulty = difficulty;
     }
 
+    /**
+     * @description Return on object specifying the preventable loss state of the board
+     * @param {array} 3x3 board 
+     */
     preventableLossCheck(board) {
         for (let i = 0; i < 3; i++) {
             for (let j = 0; j < 3; j++) {
                 if (board[i][j] == this.blank) {
-
                     board[i][j] = this.piece;
                     if (this.evaluate(board) == 10) {
                         board[i][j] = this.blank;
@@ -32,7 +32,6 @@ class AI_Player extends Player {
                             move: new Array(-1, -1)
                         };
                     }
-
                     board[i][j] = this.enemyPiece;
                     if (this.evaluate(board) == -10) {
                         board[i][j] = this.blank;
@@ -43,7 +42,6 @@ class AI_Player extends Player {
                     }
                     board[i][j] = this.blank;
                 }
-
             }
         }
         return {
@@ -59,42 +57,21 @@ class AI_Player extends Player {
     getBestMove(board) {
         var bestVal = -1000;
         var bestMove = [-1, -1];
-
         var preventable = this.preventableLossCheck(board)
+
         if (preventable.boolean) {
-            //console.log("Preventing a loss");
-            //console.log("truth value: " + preventable.boolean);
-            //console.log("move value: " + preventable.move);
             bestMove = preventable.move;
             bestVal = 1000;
         }
 
-        //console.log(board[0][0] + " | " + board[0][1] + " | " + board[0][2]);
-        //console.log(board[1][0] + " | " + board[1][1] + " | " + board[1][2]);
-        //console.log(board[2][0] + " | " + board[2][1] + " | " + board[2][2]);
-        //console.log("xxx");
-        //Loop over all empty values of the board
         if (!preventable.boolean) {
             for (let i = 0; i < 3; i++) {
                 for (let j = 0; j < 3; j++) {
                     if (board[i][j] == this.blank) {
-
-                        //Place move
                         board[i][j] = this.piece;
-                        //console.log("Evaluating new first move");
-
-                        //Get the likelyhood of a win based on this move (as a number)
                         var moveVal = this.minimax(board, 0, false);
-
-                        //Undo the piece placement
                         board[i][j] = this.blank;
-
-                        //If the new move that was found is the best move found so far
-                        //set the optimal move to the new move;
-                        //console.log("M: " + i + " " + j + "\nV: " + moveVal);
                         if (moveVal > bestVal) {
-                            console.log("found new best move of value: " + moveVal +
-                                " compared to " + bestVal);
                             bestVal = moveVal;
                             bestMove = new Array(i, j);
                         }
@@ -102,7 +79,6 @@ class AI_Player extends Player {
                 }
             }
         }
-        //console.log("Best Move: " + bestMove[0] + ", " + bestMove[1]);
         return bestMove;
     }
 
