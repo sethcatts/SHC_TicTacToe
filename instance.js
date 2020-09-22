@@ -27,7 +27,7 @@ function selectCell(i) {
     checkGameStatus();
 
     //Where should this bool go? (and game not over)
-    if(!game_instance.gameOver) {
+    if(!game_instance.gameOver && !game_instance.boardFull()) {
         var move = ai.getBestMove(game_instance.getBoard());
         fillCell(move, game_instance.currentPlayer.getPieceImage());
         game_instance.placePiece(move[0], move[1]);

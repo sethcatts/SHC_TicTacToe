@@ -11,6 +11,7 @@ class Game {
     this.blank 		      = "-";
     this.board 		      = this.createBoard();
     this.gameOver       = false;
+    this.tie            = false;
     this.player_1       = new Player("Player One (O)", "o");
     this.player_2       = new Player("Player Two (X)", "x");
     this.currentPlayer  = this.player_1;
@@ -69,7 +70,6 @@ class Game {
   placePiece(x, y) {
     if(this.legalMove(x, y) && !this.gameOver) {
       this.board[x][y] = this.currentPlayer.getPiece();
-      this.printBoard();
       this.checkForWin();
       this.checkForTie();
       if(!this.gameOver) {
@@ -169,21 +169,8 @@ class Game {
         boardFull = false;
       }
     }
+    return boardFull;
   }
-  /*
-  boardFull() {
-    //REFACTOR: Could just make this loop 3 times and call a .contains with this.emptycell arg
-	  var full = true;
-	  for (let i = 0; i < 3; i++) {
-      for (let j = 0; j < 3; j++) {      
-        if(this.board[i][j] === this.blank) {
-          full = false;
-        }
-      }
-    }
-    return full;
-  }
-  */
 
   /**
    * @desc Check if the specified cell on the game board is empty
@@ -201,6 +188,7 @@ class Game {
    */
   checkForTie() {
 	  if(this.boardFull() && !this.gameOver) {
+      this.tie = true;
 		  return true;
 	  } else {
 		  return false;
