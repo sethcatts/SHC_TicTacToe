@@ -1,7 +1,10 @@
-//Create game object instance
+//Create initial game object instance
 var game_instance = new Game();
+
+//Create and add ai to game object
 var ai = new AI_Player("AI", "x", "black", 3, "-");
 game_instance.setPlayer(ai, 0);
+
 /**
  * @desc Add piece to board
  * @param {array} i - Board index
@@ -13,7 +16,6 @@ function fillCell(i, imgPath) {
     elem.src        = imgPath;
     document.getElementById(i[0] + "" + i[1]).appendChild(elem);
 }
-
 
 /**
  * @desc Perform a (game) move
@@ -33,7 +35,6 @@ function selectCell(i) {
     }   
 }
 
-
 /**
  * @desc Provide an alert if the game is over.
  * @returns {boolean} true if game is over
@@ -51,7 +52,6 @@ function checkGameStatus() {
     return status;
 }
 
-
 /**
  * @desc Create a new game
  */
@@ -63,7 +63,6 @@ function newGame() {
     console.log("Starting player: " + game_instance.currentPlayer.piece);
 }
 
-//I find it very sus that this works, should probably refactor at some point
 /**
  * @desc Clear game board (visual)
  */
@@ -74,7 +73,6 @@ function clearBoard() {
     }
 }
 
-//Sloppy
 /**
  * @desc Change the board & piece theme
  * @param {string} theme 
